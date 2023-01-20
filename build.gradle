@@ -24,7 +24,7 @@ dependencies {
 	* If no DB is connected, it will cause errors to be thrown. Once we have our DB set up,
 	* we can bring this line back. */
 
-//	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
