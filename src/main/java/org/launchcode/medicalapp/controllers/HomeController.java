@@ -9,5 +9,6 @@ public class HomeController {
     @GetMapping("index")
     public String home (Model model) {
         return "index";
+        //testing
     }
 }
