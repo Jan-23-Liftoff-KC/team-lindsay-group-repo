@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container body-content">
+<h1>Schedule an Appointment</h1>
+
+<form method="post" style="max-width:600px;">
+    <div class="form-group">
+        <label th:for="FIRST_NAME">First Name</label>
+        <input class="form-control" th:field="${patient.firstName}" />
+        <span th:errors="${patient.firstName}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="LAST_NAME">Last Name</label>
+        <input class="form-control" th:field="${patient.lastName}" />
+        <span th:errors="${patient.lastName}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="DATE_OF_BIRTH">Date of Birth</label>
+        <input type="date" class="form-control" th:field="${patient.dateOfBirth}" />
+        <span th:errors="${patient.dateOfBirth}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="MOBILE_NO">Mobile No</label>
+        <input class="form-control" th:field="${patient.mobileNo}" />
+        <span th:errors="${patient.mobileNo}" class="error"></span>
+    </div>
+    <input type="submit" value="Schedule Appointment" />
+</form>
+
+</body>
+</html>
