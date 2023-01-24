@@ -38,7 +38,10 @@ out/
 
 ### application.properties
 application.properties
+resources/application.properties
 medicalapp/src/main/resources/application.properties
 lc101/Liftoff/medicalapp/src/main/resources/application.properties
+/Users/kevinpeery/Desktop/lc101/Liftoff/medicalapp/src/main/resources/application.properties
 src/main/resources/application.properties
 *.properties
+

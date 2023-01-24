@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import static java.util.stream.Collectors.toList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +52,6 @@ public class DoctorServiceImpl implements DoctorService {
         List<Doctor> doctors = this.doctorRepository.findAll();
         return doctors.stream().map(entity -> {
             return new DoctorDto(entity);
-        }).toList();
+        }).collect(toList());
     }
-
 }
