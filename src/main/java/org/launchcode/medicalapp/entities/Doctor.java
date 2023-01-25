@@ -23,7 +23,7 @@ public class Doctor {
     private Long id;
 
     @Column(unique = true)
-    private String doctorname;
+    private String doctorName;
 
     @Column
     private String password;
@@ -33,8 +33,8 @@ public class Doctor {
     private Set<Patient> patientSet = new HashSet<>();
 
     public Doctor(DoctorDto doctorDto){
-        if (doctorDto.getDoctorname() != null){
-            this.doctorname = doctorDto.getDoctorname();
+        if (doctorDto.getDoctorName() != null){
+            this.doctorName = doctorDto.getDoctorName();
         }
         if (doctorDto.getPassword() != null){
             this.password = doctorDto.getPassword();
