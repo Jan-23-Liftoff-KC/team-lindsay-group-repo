@@ -1,6 +1,6 @@
 package org.launchcode.medicalapp.dtos;
 
-import org.launchcode.medicalapp.entities.Patient;
+import org.launchcode.medicalapp.models.Patient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

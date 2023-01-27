@@ -1,7 +1,7 @@
 package org.launchcode.medicalapp.services;
 
 import org.launchcode.medicalapp.dtos.DoctorDto;
-import org.launchcode.medicalapp.entities.Doctor;
+import org.launchcode.medicalapp.models.Doctor;
 import org.launchcode.medicalapp.repositories.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;

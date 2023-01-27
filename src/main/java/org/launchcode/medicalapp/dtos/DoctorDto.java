@@ -1,6 +1,6 @@
 package org.launchcode.medicalapp.dtos;
 
-import org.launchcode.medicalapp.entities.Doctor;
+import org.launchcode.medicalapp.models.Doctor;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Data
 @AllArgsConstructor

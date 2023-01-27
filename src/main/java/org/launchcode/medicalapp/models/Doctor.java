@@ -1,11 +1,10 @@
-package org.launchcode.medicalapp.entities;
+package org.launchcode.medicalapp.models;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.launchcode.medicalapp.dtos.DoctorDto;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 import java.util.HashSet;

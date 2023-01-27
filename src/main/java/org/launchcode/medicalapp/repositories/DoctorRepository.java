@@ -1,7 +1,7 @@
 package org.launchcode.medicalapp.repositories;
 
 
-import org.launchcode.medicalapp.entities.Doctor;
+import org.launchcode.medicalapp.models.Doctor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
