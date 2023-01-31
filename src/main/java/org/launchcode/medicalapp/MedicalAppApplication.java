@@ -7,12 +7,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 @SpringBootApplication
-public class MedicalappApplication {
+public class MedicalAppApplication {
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 	public static void main(String[] args) {
-		SpringApplication.run(MedicalappApplication.class, args);
+		SpringApplication.run(MedicalAppApplication.class, args);
 	}
 }
