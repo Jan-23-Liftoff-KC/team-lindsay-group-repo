@@ -1,10 +1,47 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http:www.thymeleaf.org/"></html>
-<head>
-    <meta charset="UTF-8" />
-    <title></title>
-</head>
-<body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<link href="style.css" rel="stylesheet" type="text/css" />
 
+<div id="prettyTop">
+    <img src="./images/MEDPRO3.png" alt="Med Pro" width="100%" class="center">
+    <br><br>
+    <h1>Schedule Your Appointment</h1>
+</div>
+<body>
+<h2 class="instruction">Step 2: Select Date</h2>
+<form method="post" style="max-width:600px;">
+    <div class="form-group">
+        <input type="hidden" th:for="patient_fid" th:value="${patient.patientId}" th:field="${appointment.patient.patientId}">
+        <table>
+            <tr>
+                <td>Patient Name: </td>
+                <td th:text="${patient.firstName}"></td>
+                <td th:text="${patient.lastName}"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="form-group">
+        <label Choose a Provider th:for="doctor_fid"></label>
+        <select name="getDoc">
+            <option th:each="doctor:${doctors}"
+                    th:value="${doctor.doctorId}"
+                    th:text="${doctor.doctorName}">
+
+            </option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label th:for="APPOINTMENT_DATE">Select a Date</label>
+        <input type = "date" class="form-control" th:field="${appointment.appointmentDate}" />
+        <span th:errors="${appointment.appointmentDate}" class="error"></span>
+    </div>
+    <div class="button">
+        <input type="submit" class="btn btn-info" data-toggle="button" aria-pressed="false" autocomplete="off" value="Schedule Appointment" />
+    </div>
+</form>
 </body>
 </html>
