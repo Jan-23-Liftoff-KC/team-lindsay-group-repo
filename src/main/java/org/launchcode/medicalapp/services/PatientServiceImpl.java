@@ -1,12 +1,11 @@
 package org.launchcode.medicalapp.services;
 
 import org.launchcode.medicalapp.dtos.PatientDto;
-import org.launchcode.medicalapp.entities.Doctor;
-import org.launchcode.medicalapp.entities.Patient;
+import org.launchcode.medicalapp.models.Doctor;
+import org.launchcode.medicalapp.models.Patient;
 import org.launchcode.medicalapp.repositories.DoctorRepository;
 import org.launchcode.medicalapp.repositories.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -57,6 +56,9 @@ public class PatientServiceImpl implements PatientService {
             patient.setDiagnosis(patientDto.getDiagnosis());
             patient.setPrescriptions(patientDto.getPrescriptions());
             patient.setDoctorNotes(patientDto.getDoctorNotes());
+            patient.setEmail(patientDto.getEmail());
+            patient.setPhoneNo(patientDto.getPhoneNo());
+            //patient.setDateOfBirth(patientDto.getDateOfBirth());
             patientRepository.saveAndFlush(patient);
         });
     }

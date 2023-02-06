@@ -1,23 +1,24 @@
 package org.launchcode.medicalapp.services;
 
 import org.launchcode.medicalapp.dtos.DoctorDto;
-import org.launchcode.medicalapp.entities.Doctor;
+import org.launchcode.medicalapp.models.Doctor;
 import org.launchcode.medicalapp.repositories.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import static java.util.stream.Collectors.toList;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static java.util.stream.Collectors.toList;
+
 @Service
 public class DoctorServiceImpl implements DoctorService {
     @Autowired
     private DoctorRepository doctorRepository;
-    @Autowired
+    //@Autowired
     private PasswordEncoder passwordEncoder;
 
     @Override
@@ -33,7 +34,7 @@ public class DoctorServiceImpl implements DoctorService {
     @Override
     public List<String> doctorLogin(DoctorDto doctorDto){
         List<String> response = new ArrayList<>();
-        Optional<Doctor> doctorOptional = doctorRepository.findByDoctorname(doctorDto.getDoctorname());
+        Optional<Doctor> doctorOptional = doctorRepository.findByDoctorName(doctorDto.getDoctorName());
         if(doctorOptional.isPresent()){
             if(passwordEncoder.matches(doctorDto.getPassword(), doctorOptional.get().getPassword())){
                 response.add("http://localhost:8080/templates/home.html");
