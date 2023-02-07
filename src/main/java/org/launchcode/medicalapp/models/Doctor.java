@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.launchcode.medicalapp.dtos.DoctorDto;
 //import org.springframework.data.annotation.Id;
 
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -42,6 +43,7 @@ public class Doctor {
     @JoinColumn(name = "doctor_id", referencedColumnName = "id")
     @JsonManagedReference
     private Set<Appointment> appointmentSet = new HashSet<>();
+
 
     public Doctor(DoctorDto doctorDto){
         if (doctorDto.getDoctorName() != null){

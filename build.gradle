@@ -19,11 +19,6 @@ repositories {
 }
 
 dependencies {
-	/*The first dependency is commented out because it it causing the error with our initial Hello World
-	* build test. If we leave that dependency, the app will expect a database (DB) to be connected.
-	* If no DB is connected, it will cause errors to be thrown. Once we have our DB set up,
-	* we can bring this line back. */
-
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'

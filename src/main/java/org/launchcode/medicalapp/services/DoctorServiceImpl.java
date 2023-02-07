@@ -40,10 +40,10 @@ public class DoctorServiceImpl implements DoctorService {
                 response.add("http://localhost:8080/templates/home.html");
                 response.add(String.valueOf(doctorOptional.get().getId()));
             } else {
-                response.add("Doctorname or password incorrect");
+                response.add("Doctor name or password incorrect");
             }
         } else {
-            response.add("Doctorname or password incorrect");
+            response.add("Doctor name or password incorrect");
         }
         return response;
 
@@ -54,5 +54,6 @@ public class DoctorServiceImpl implements DoctorService {
         return doctors.stream().map(entity -> {
             return new DoctorDto(entity);
         }).collect(toList());
+        //or .collect(Collectors.toList());
     }
 }
