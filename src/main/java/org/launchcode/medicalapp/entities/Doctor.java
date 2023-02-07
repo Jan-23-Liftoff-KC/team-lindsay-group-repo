@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.launchcode.medicalapp.dtos.DoctorDto;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -16,10 +15,10 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Doctor {
-
+public class Doctor{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Long id;
 
     @Column(unique = true)
@@ -28,9 +27,18 @@ public class Doctor {
     @Column
     private String password;
 
+
     @OneToMany(mappedBy = "doctor", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JsonManagedReference
     private Set<Patient> patientSet = new HashSet<>();
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Doctor(DoctorDto doctorDto){
         if (doctorDto.getDoctorname() != null){
