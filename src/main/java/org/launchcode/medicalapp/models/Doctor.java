@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.launchcode.medicalapp.dtos.DoctorDto;
+//import org.springframework.data.annotation.Id;
+
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -15,10 +17,10 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Doctor{
+public class Doctor {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
     private Long id;
 
     @Column(unique = true)
@@ -27,18 +29,21 @@ public class Doctor{
     @Column
     private String password;
 
-
-    @OneToMany(mappedBy = "doctor", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "doctor_id", referencedColumnName = "id")
     @JsonManagedReference
     private Set<Patient> patientSet = new HashSet<>();
 
-    public Long getId() {
-        return id;
-    }
+    /*
+    @OneToMany(mappedBy = "doctor", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JsonManagedReference
+    private Set<Patient> patientSet = new HashSet<>();*/
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "doctor_id", referencedColumnName = "id")
+    @JsonManagedReference
+    private Set<Appointment> appointmentSet = new HashSet<>();
+
 
     public Doctor(DoctorDto doctorDto){
         if (doctorDto.getDoctorName() != null){

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,8 +17,8 @@ public class DoctorDto implements Serializable {
     private Long id;
     private String doctorName;
     private String password;
-    private Set<DoctorDto> doctorDtoSet = new HashSet<>();
-//we transfer an object of data every time. We simply transfer that object instead of calling everything seperately.
+    //private Set<DoctorDto> doctorDtoSet = new HashSet<>();
+    //we transfer an object of data every time. We simply transfer that object instead of calling everything seperately.
     //this handles the "new" creation for you. It's a cleaner way to transfer objects/info and it's more secure.
     //It encrypts the passwords when you are sending those.
     //dtos help us create the object in a clean manner. The services help us access those objects.
