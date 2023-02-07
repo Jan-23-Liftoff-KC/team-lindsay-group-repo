@@ -1,4 +1,4 @@
-package org.launchcode.medicalapp.entities;
+package org.launchcode.medicalapp.models;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
@@ -22,7 +22,7 @@ public class Doctor{
     private Long id;
 
     @Column(unique = true)
-    private String doctorname;
+    private String doctorName;
 
     @Column
     private String password;
@@ -41,8 +41,8 @@ public class Doctor{
     }
 
     public Doctor(DoctorDto doctorDto){
-        if (doctorDto.getDoctorname() != null){
-            this.doctorname = doctorDto.getDoctorname();
+        if (doctorDto.getDoctorName() != null){
+            this.doctorName = doctorDto.getDoctorName();
         }
         if (doctorDto.getPassword() != null){
             this.password = doctorDto.getPassword();

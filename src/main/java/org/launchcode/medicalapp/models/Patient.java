@@ -1,72 +1,65 @@
 package org.launchcode.medicalapp.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.launchcode.medicalapp.dtos.PatientDto;
 
-import javax.persistence.Entity;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
-import java.sql.Date;
-
+import javax.persistence.*;
 
 @Entity
-public class Patient extends AbstractEntity{
-    @NotBlank(message = "First Name is required")
+@Table(name = "Patients")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Patient {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column
     private String firstName;
-    @NotBlank(message = "Last Name is required")
+
+    @Column
     private String lastName;
 
-    @Past(message = "Patient Birth Date cannot be a future date")
-    private Date dateOfBirth;
+    @Column
+    private Integer age;
 
-    @Pattern(regexp="(^$|[0-9]{10})", message = "Mobile Number should be Numeric and 10 digits")
-    private String mobileNo;
+    @Column(columnDefinition = "text")
+    private String diagnosis;
 
+    @Column(columnDefinition = "text")
+    private String prescriptions;
 
-    //@ManyToMany
-    //private List<Provider> providers  = new ArrayList<>();
+    @Column(columnDefinition = "text")
+    private String doctorNotes;
 
-    //@OneToMany
-    //private List<Availability> availability = new ArrayList<>();
+    @ManyToOne
+    @JsonBackReference
+    private Doctor doctor;
 
-    public String getFirstName() {
-        return firstName;
+    public Patient(PatientDto patientDto){
+        if (patientDto.getFirstName() != null){
+            this.firstName = patientDto.getFirstName();
+        }
+        if (patientDto.getLastName() != null){
+            this.lastName = patientDto.getLastName();
+        }
+        if (patientDto.getAge() != null){
+            this.age = patientDto.getAge();
+        }
+        if (patientDto.getDiagnosis() != null){
+            this.diagnosis = patientDto.getDiagnosis();
+        }
+        if (patientDto.getPrescriptions() != null){
+            this.prescriptions = patientDto.getPrescriptions();
+        }
+        if (patientDto.getDoctorNotes() != null){
+            this.doctorNotes = patientDto.getDoctorNotes();
+        }
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public String getMobileNo() {
-        return mobileNo;
-    }
-
-    public void setMobileNo(String mobileNo) {
-        this.mobileNo = mobileNo;
-    }
-/*
-    public List<Availability> getAvailability() {
-        return availability;
-    }
-
-    public void setAvailability(List<Availability> availability) {
-        this.availability = availability;
-    }
-
- */
 }
