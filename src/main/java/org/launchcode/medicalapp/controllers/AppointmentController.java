@@ -1,7 +1,6 @@
 package org.launchcode.medicalapp.controllers;
 
 import org.launchcode.medicalapp.dtos.AppointmentDto;
-import org.launchcode.medicalapp.dtos.PatientDto;
 import org.launchcode.medicalapp.services.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

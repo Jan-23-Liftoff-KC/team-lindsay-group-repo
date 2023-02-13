@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.launchcode.medicalapp.dtos.PatientDto;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
@@ -43,7 +44,7 @@ public class Patient {
     private String doctorNotes;
 
     @Column
-    //@Email(message = "please enter a valid email")
+    @Email(message = "please enter a valid email")
     private String email;
 
     @Column
@@ -59,10 +60,6 @@ public class Patient {
     @JoinColumn(name = "patient_id", referencedColumnName = "id")
     @JsonManagedReference
     private Set<Appointment> appointmentSet = new HashSet<>();
-
-    @ManyToOne
-    @JsonBackReference
-    private Doctor doctor;
 
     public Patient(PatientDto patientDto){
         if (patientDto.getFirstName() != null){
@@ -83,9 +80,14 @@ public class Patient {
         if (patientDto.getDoctorNotes() != null){
             this.doctorNotes = patientDto.getDoctorNotes();
         }
+        if (patientDto.getEmail() != null){
+            this.email = patientDto.getEmail();
+        }
+        if (patientDto.getPhoneNo() != null){
+            this.phoneNo = patientDto.getPhoneNo();
+        }
     }
 
 }
 
-}
 

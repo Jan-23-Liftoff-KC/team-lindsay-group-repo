@@ -10,6 +10,29 @@
     <link rel="stylesheet" href="../css/register.css" type="text/css">
     <title>Register</title>
 </head>
+
+<div class="header-container">
+    <h1>Medical App</h1>
+    <h2>An app for healthcare providers</h2>
+    <img class="header-image" src="" alt="" height="150" width="150">
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                <a class="nav-link" href="register.html">Register</a>
+                <a class="nav-link" href="login.html">Login</a>
+                <a class="btn btn-danger navbar-btn" href="./login.html" onclick="handleLogout()">Logout</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
 <body class="container">
 <div class="container-md">
     <h1>REGISTER</h1>
@@ -28,6 +51,11 @@
         </div>
     </form>
 </div>
+
+<footer class="py-3 my-4">
+    <p class="text-center text-muted">© 2023</p>
+</footer>
+
 <script src="../javascript/register.js" type="application/javascript"></script>
 </body>
 </html>
