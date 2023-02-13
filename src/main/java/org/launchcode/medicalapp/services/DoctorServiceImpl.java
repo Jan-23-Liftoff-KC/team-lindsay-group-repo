@@ -36,13 +36,14 @@ public class DoctorServiceImpl implements DoctorService {
         Optional<Doctor> doctorOptional = doctorRepository.findByDoctorName(doctorDto.getDoctorName());
         if(doctorOptional.isPresent()){
             if(passwordEncoder.matches(doctorDto.getPassword(), doctorOptional.get().getPassword())){
-                response.add("http://localhost:8080/templates/home.html");
+//                response.add("http://localhost:8080/templates/login.html");
+//                response.add("http://localhost:8080/login");
                 response.add(String.valueOf(doctorOptional.get().getId()));
             } else {
-                response.add("Doctorname or password incorrect");
+                response.add("Doctor name or password incorrect");
             }
         } else {
-            response.add("Doctorname or password incorrect");
+            response.add("Doctor name or password incorrect");
         }
         return response;
 
@@ -53,5 +54,6 @@ public class DoctorServiceImpl implements DoctorService {
         return doctors.stream().map(entity -> {
             return new DoctorDto(entity);
         }).collect(toList());
+        //or .collect(Collectors.toList());
     }
 }
