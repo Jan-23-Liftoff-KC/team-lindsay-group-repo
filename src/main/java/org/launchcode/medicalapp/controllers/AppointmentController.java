@@ -9,12 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 
 @Controller
-@RequestMapping(value = "appointment")
+@RequestMapping(value = "appointments", method = {RequestMethod.GET, RequestMethod.POST})
 public class AppointmentController {
 
     @Autowired
@@ -40,7 +41,7 @@ public class AppointmentController {
         model.addAttribute("doctors", DoctorRepository.findAll());
         model.addAttribute("patients", PatientRepository.findAll());
         model.addAttribute("appointments", AppointmentRepository.findAll());
-        return "list";
+        return "appointments";
     }
 
     @RequestMapping(value = "appointments")

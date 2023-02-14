@@ -1,24 +1,43 @@
 package org.launchcode.medicalapp.models;
 
-import java.util.ArrayList;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+@Entity
+@Table(name = "Appointments")
+@Data
+@NoArgsConstructor
 public class Appointment {
-    private Doctor doctor;
-    private Patient patient;
-    private Illness illness;
-    private Date date;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @OneToMany(mappedBy = "appointment", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JsonManagedReference
+    private Set<Patient> patientSet = new HashSet<>();
+
+    @OneToOne
+    @JoinColumn(name = "appointment_id")
     private Appointment appointment;
 
-    public Appointment(
-            Doctor doctor, Patient patient, Illness illness, Date date, Appointment appointment
-    ){
-        this.doctor = doctor;
-        this.patient = patient;
-        this.illness = illness;
-        this.date = date;
-    }
+    @OneToOne
+    @JoinColumn(name = "doctor_id")
+    private Doctor doctor;
+    @OneToOne
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
+    @ManyToOne
+    @JoinColumn(name="illness_id")
+    private Illness illness;
+
+    private Date date;
 
     public Doctor getDoctor() {
         return doctor;

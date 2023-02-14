@@ -1,0 +1,34 @@
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#prettyTop{
+text-align: center;
+padding-bottom: 30px;
+}
+
+#form{
+    padding-top: 20px;
+    text-align: center;
+}
+
+#schedule {
+    padding-top: 100px;
+    text-align: center;
+}
+
+.button {
+    padding-top: 20px;
+    padding-left: 50%;
+
+}
+.form-group {
+    padding-top: 20px;
+    padding-left: 25%;
+}
+.instruction {
+    text-align: left;
+    padding-left: 15%;
+}
