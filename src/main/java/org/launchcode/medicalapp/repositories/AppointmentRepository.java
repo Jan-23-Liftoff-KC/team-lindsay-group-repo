@@ -1,7 +1,7 @@
 package org.launchcode.medicalapp.repositories;
 
-import org.launchcode.medicalapp.entities.Doctor;
-import org.launchcode.medicalapp.entities.Patient;
+import org.launchcode.medicalapp.models.Doctor;
+import org.launchcode.medicalapp.models.Patient;
 import org.launchcode.medicalapp.models.Appointment;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

@@ -18,8 +18,10 @@ public class DoctorController {
 
     @GetMapping("")
     public List<DoctorDto> getAllDoctors(){
+
         return doctorService.getAllDoctors();
     }
+
     @PostMapping("/register")
     public List<String> addDoctor(@RequestBody DoctorDto doctorDto){
         String passHash = passwordEncoder.encode(doctorDto.getPassword());

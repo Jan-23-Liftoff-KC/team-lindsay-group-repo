@@ -1,6 +1,6 @@
 package org.launchcode.medicalapp.dtos;
 
-import org.launchcode.medicalapp.entities.Patient;
+import org.launchcode.medicalapp.models.Patient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -43,7 +43,7 @@ public class PatientDto implements Serializable {
             this.age = patient.getAge();
         }
         this.doctorDto = new DoctorDto();
-        this.doctorDto.setDoctorname(patient.getDoctor().getDoctorname());
+        this.doctorDto.setDoctorName(patient.getDoctor().getDoctorName());
         this.doctorDto.setId(patient.getDoctor().getId());
     }
 }

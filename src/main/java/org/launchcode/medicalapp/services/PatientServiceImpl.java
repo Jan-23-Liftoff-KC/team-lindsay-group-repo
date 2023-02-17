@@ -1,8 +1,8 @@
 package org.launchcode.medicalapp.services;
 
 import org.launchcode.medicalapp.dtos.PatientDto;
-import org.launchcode.medicalapp.entities.Doctor;
-import org.launchcode.medicalapp.entities.Patient;
+import org.launchcode.medicalapp.models.Doctor;
+import org.launchcode.medicalapp.models.Patient;
 import org.launchcode.medicalapp.repositories.DoctorRepository;
 import org.launchcode.medicalapp.repositories.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
 package org.launchcode.medicalapp.services;
 
 import org.launchcode.medicalapp.dtos.DoctorDto;
-import org.launchcode.medicalapp.entities.Doctor;
+import org.launchcode.medicalapp.models.Doctor;
 import org.launchcode.medicalapp.repositories.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -33,16 +33,16 @@ public class DoctorServiceImpl implements DoctorService {
     @Override
     public List<String> doctorLogin(DoctorDto doctorDto){
         List<String> response = new ArrayList<>();
-        Optional<Doctor> doctorOptional = doctorRepository.findByDoctorname(doctorDto.getDoctorname());
+        Optional<Doctor> doctorOptional = doctorRepository.findByDoctorName(doctorDto.getDoctorName());
         if(doctorOptional.isPresent()){
             if(passwordEncoder.matches(doctorDto.getPassword(), doctorOptional.get().getPassword())){
                 response.add("http://localhost:8080/templates/home.html");
                 response.add(String.valueOf(doctorOptional.get().getId()));
             } else {
-                response.add("Doctorname or password incorrect");
+                response.add("Doctor Name or password incorrect");
             }
         } else {
-            response.add("Doctorname or password incorrect");
+            response.add("Doctor Name or password incorrect");
         }
         return response;
 
