@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.launchcode.medicalapp.models.Appointment;
+
 import java.io.Serializable;
 import java.util.Date;
 

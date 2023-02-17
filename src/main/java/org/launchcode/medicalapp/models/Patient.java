@@ -79,6 +79,12 @@ public class Patient {
         if (patientDto.getDoctorNotes() != null){
             this.doctorNotes = patientDto.getDoctorNotes();
         }
+        if (patientDto.getEmail() != null){
+            this.email = patientDto.getEmail();
+        }
+        if (patientDto.getPhoneNo() != null){
+            this.phoneNo = patientDto.getPhoneNo();
+        }
     }
 
 }

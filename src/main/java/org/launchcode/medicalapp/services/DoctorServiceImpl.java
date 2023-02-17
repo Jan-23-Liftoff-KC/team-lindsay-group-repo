@@ -56,4 +56,13 @@ public class DoctorServiceImpl implements DoctorService {
         }).collect(toList());
         //or .collect(Collectors.toList());
     }
+
+    @Override
+    public Optional<DoctorDto> getDoctorById(Long doctorId) {
+        Optional<Doctor> doctorOptional = doctorRepository.findById(doctorId);
+        if (doctorOptional.isPresent()){
+            return Optional.of(new DoctorDto(doctorOptional.get()));
+        }
+        return Optional.empty();
+    }
 }

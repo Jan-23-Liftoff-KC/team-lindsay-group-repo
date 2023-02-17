@@ -26,6 +26,11 @@ public class PatientController {
         patientService.addPatient(patientDto, doctorId);
     }
 
+    @PostMapping("/addpatient/doctor/{doctorId}")
+    public PatientDto addAndGetPatient(@RequestBody PatientDto patientDto, @PathVariable Long doctorId){
+        return patientService.addAndGetPatient(patientDto, doctorId);
+    }
+
     @DeleteMapping("/{patientId}")
     public void deletePatientById(@PathVariable Long patientId){
         patientService.deletePatientById(patientId);

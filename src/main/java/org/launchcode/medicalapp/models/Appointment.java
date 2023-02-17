@@ -21,7 +21,8 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy h:mm a")
+    @DateTimeFormat(pattern = "MM/dd/yyyy h:mm a")
+    //@Future(message="Appointment Date should a future date!!")
     private Date appointmentDate;
 
     // 0-Cancelled by patient, 1-Active, 2-Completed

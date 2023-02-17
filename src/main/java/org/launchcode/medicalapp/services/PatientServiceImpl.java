@@ -39,6 +39,16 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
+    public PatientDto addAndGetPatient(PatientDto patientDto, Long doctorId) {
+        Optional<Doctor> doctorOptional = doctorRepository.findById(doctorId);
+        Patient patient = new Patient(patientDto);
+        doctorOptional.ifPresent(patient::setDoctor);
+        patientRepository.saveAndFlush(patient);
+        PatientDto patientDto1 = new PatientDto(patient);
+        return patientDto1;
+    }
+
+    @Override
     @Transactional
     public void deletePatientById(Long patientId) {
         Optional<Patient> patientOptional = patientRepository.findById(patientId);
@@ -58,7 +68,6 @@ public class PatientServiceImpl implements PatientService {
             patient.setDoctorNotes(patientDto.getDoctorNotes());
             patient.setEmail(patientDto.getEmail());
             patient.setPhoneNo(patientDto.getPhoneNo());
-            //patient.setDateOfBirth(patientDto.getDateOfBirth());
             patientRepository.saveAndFlush(patient);
         });
     }
