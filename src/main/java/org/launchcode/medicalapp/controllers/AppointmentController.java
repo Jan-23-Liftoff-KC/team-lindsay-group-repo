@@ -1,7 +1,9 @@
 package org.launchcode.medicalapp.controllers;
 
+import jdk.jfr.Category;
 import org.launchcode.medicalapp.models.Appointment;
 import org.launchcode.medicalapp.models.AppointmentData;
+import org.launchcode.medicalapp.models.Patient;
 import org.launchcode.medicalapp.repositories.AppointmentRepository;
 import org.launchcode.medicalapp.repositories.DoctorRepository;
 import org.launchcode.medicalapp.repositories.PatientRepository;
@@ -11,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.Optional;
 
 @Controller
 //@RequestMapping("appointments")
@@ -26,15 +29,6 @@ public class AppointmentController {
 
     static HashMap<String, String> columnChoices = new HashMap<>();
 
-//    public AppointmentController () {
-//
-//        columnChoices.put("all", "All");
-//        columnChoices.put("patient", "Patient");
-//        columnChoices.put("doctors", "Doctors");
-//        columnChoices.put("appointments", "Appointments");
-//
-//    }
-
     @GetMapping("appointments")
     public String appointment(Model model) {
         model.addAttribute("doctors", DoctorRepository.findAll());
@@ -43,8 +37,18 @@ public class AppointmentController {
         return "appointments";
     }
 
-    @RequestMapping("appointment/{appointmentId}")
-    public String listAppointmentsByColumnAndValue(@PathVariable int appointmentId, Model model) {
+    @GetMapping("appointment/{appointmentId}")
+    public String listAppointmentsByColumnAndValue(@PathVariable long appointmentId, Model model) {
+        Optional<Appointment> optAppointment = AppointmentRepository.findById(appointmentId);
+        if (optAppointment.isPresent()) {
+            Appointment appointment = (Appointment) optAppointment.get();
+            model.addAttribute("appointments", appointment);
+            model.addAttribute("patients", appointment.getPatient());
+            return "appointment";
+        } else {
+            return "redirect:../";
+        }
+
 //        Iterable<Appointment> appointments;
 //////        if (column.toLowerCase().equals("all")){
 //////            appointments = AppointmentRepository.findAll();
@@ -54,7 +58,5 @@ public class AppointmentController {
 ////            model.addAttribute("title", "Appointments with " + columnChoices.get(column) + ": " + value);
 ////        }
 //        model.addAttribute("appointments", appointments);
-
-        return "appointment";
     }
 }
