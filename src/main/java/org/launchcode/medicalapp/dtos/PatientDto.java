@@ -1,9 +1,9 @@
 package org.launchcode.medicalapp.dtos;
 
-import org.launchcode.medicalapp.models.Patient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.launchcode.medicalapp.models.Patient;
 
 import java.io.Serializable;
 
@@ -21,7 +21,6 @@ public class PatientDto implements Serializable {
     private DoctorDto doctorDto;
 
     private String email;
-
     private String phoneNo;
 
     public PatientDto(Patient patient){

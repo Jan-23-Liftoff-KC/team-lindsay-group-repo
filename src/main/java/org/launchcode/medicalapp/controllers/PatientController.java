@@ -31,6 +31,11 @@ public class PatientController {
         return patientService.addAndGetPatient(patientDto, doctorId);
     }
 
+    @PostMapping("/register/doctor/{doctorId}")
+    public void registerPatient(@RequestBody PatientDto patientDto, @PathVariable Long doctorId){
+        patientService.registerPatient(patientDto, doctorId);
+    }
+
     @DeleteMapping("/{patientId}")
     public void deletePatientById(@PathVariable Long patientId){
         patientService.deletePatientById(patientId);
@@ -45,4 +50,5 @@ public class PatientController {
     public Optional<PatientDto> getPatientById(@PathVariable Long patientId){
         return patientService.getPatientById(patientId);
     }
+
 }

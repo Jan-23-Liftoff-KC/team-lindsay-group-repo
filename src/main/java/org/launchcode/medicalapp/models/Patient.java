@@ -60,6 +60,10 @@ public class Patient {
     @JsonManagedReference
     private Set<Appointment> appointmentSet = new HashSet<>();
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private PatientLogin patientLogin;
+
     public Patient(PatientDto patientDto){
         if (patientDto.getFirstName() != null){
             this.firstName = patientDto.getFirstName();

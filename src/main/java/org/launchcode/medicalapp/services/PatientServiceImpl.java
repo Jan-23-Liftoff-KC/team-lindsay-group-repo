@@ -1,9 +1,12 @@
 package org.launchcode.medicalapp.services;
 
 import org.launchcode.medicalapp.dtos.PatientDto;
+import org.launchcode.medicalapp.dtos.PatientLoginDto;
 import org.launchcode.medicalapp.models.Doctor;
 import org.launchcode.medicalapp.models.Patient;
+import org.launchcode.medicalapp.models.PatientLogin;
 import org.launchcode.medicalapp.repositories.DoctorRepository;
+import org.launchcode.medicalapp.repositories.PatientLoginRepository;
 import org.launchcode.medicalapp.repositories.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +21,9 @@ public class PatientServiceImpl implements PatientService {
     private DoctorRepository doctorRepository;
     @Autowired
     private PatientRepository patientRepository;
+
+    @Autowired
+    private PatientLoginRepository patientLoginRepository;
 
     @Override
     public List<PatientDto> getAllPatientsByDoctorId(Long doctorId){
@@ -46,6 +52,21 @@ public class PatientServiceImpl implements PatientService {
         patientRepository.saveAndFlush(patient);
         PatientDto patientDto1 = new PatientDto(patient);
         return patientDto1;
+    }
+
+    @Override
+    public void registerPatient(PatientDto patientDto, Long doctorId) {
+        Optional<Doctor> doctorOptional = doctorRepository.findById(doctorId);
+        Patient patient = new Patient(patientDto);
+        doctorOptional.ifPresent(patient::setDoctor);
+        patientRepository.saveAndFlush(patient);
+
+        PatientLoginDto patientLoginDto = new PatientLoginDto();
+        patientLoginDto.setUserName(patientDto.getEmail());
+        patientLoginDto.setPassword("pass1234");
+        PatientLogin patientLogin = new PatientLogin(patientLoginDto);
+        patientLoginRepository.saveAndFlush(patientLogin);
+
     }
 
     @Override

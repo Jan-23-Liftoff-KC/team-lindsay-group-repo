@@ -21,5 +21,8 @@ public interface PatientService {
     @Transactional
     void updatePatientById(PatientDto patientDto);
 
+    @Transactional
+    void registerPatient(PatientDto patientDto, Long doctorId);
+
     Optional<PatientDto> getPatientById(Long patientId);
 }
