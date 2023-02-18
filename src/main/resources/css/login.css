@@ -6,7 +6,7 @@
 }
 
 body {
-   background-color: #f0f8ff;
+   background-color: #ffffff;
    padding: 0;
    margin: 0;
    width: 100%;
@@ -18,11 +18,28 @@ body {
 
 #prettyTop{
 text-align: center;
-padding-bottom: 30px;
+padding-bottom: 10px;
 }
 
 #form{
     padding-top: 20px;
     padding-bottom: 20px;
+    text-align: center;
+}
+h2{
+font-size: 16px;
+text-align: center;
+padding-bottom: 20px;
+}
+h1{
+text-align: center;
+}
+.mt-1{
+text-align: center;
+padding-top: 20px;
+}
+
+#schedule {
+    padding-top: 100px;
     text-align: center;
 }

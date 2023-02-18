@@ -12,30 +12,58 @@
 </head>
 <div id="prettyTop">
     <img src="./images/MEDPRO3.png" alt="Med Pro" width="100%" class="center">
-    <br><br>
-    <h1>Welcome! Please log in below.</h1>
-</div>
+ </div>
+
+
+<nav class="navbar navbar-expand-lg bg-light" >
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                <a class="nav-link" href="register.html">Register</a>
+                <a class="nav-link" href="login.html">Login</a>
+                <a class="btn btn-danger navbar-btn" href="./login.html" onclick="handleLogout()">Logout</a>
+                <br><br>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
 
 <body class="container">
 <div class="container-md">
-<!--    <h1>Please Log in</h1>-->
+    <h1>Welcome! Please log in below.</h1>
+    <h2>An application for healthcare providers</h2>
     <form id="login-form">
         <div class="form-group">
-            <label for="login-doctorName">Provider name</label>
-            <input type="text" class="form-control" id="login-doctorName" placeholder="Provider name">
+            <label for="login-doctorname">Provider name: </label>
+            <input type="text" class="form-control" id="login-doctorname" placeholder="Provider name">
         </div>
-
         <div class="form-group">
-            <label for="login-password">Password</label>
+            <label for="login-password">Password: </label>
             <input type="password" class="form-control" id="login-password" placeholder="Password">
         </div>
-
         <div class="mt-1">
-            <button id="submit-button" type="submit" class="btn btn-info" data-toggle="button" aria-pressed="false" autocomplete="off">Submit</button>
-            <a href="./register.html" class="btn btn-info" data-toggle="button" aria-pressed="false" autocomplete="off">Register</a>
+            <button id="submit-button" type="submit" class="btn btn-info">Submit</button>
+            <a href="./register.html" class="btn btn-secondary">Register</a>
         </div>
     </form>
 </div>
+
+
+<div id="schedule">
+    <p>Not a medical provider? Click the button below to schedule an appointment!</p>
+    <input type="submit" class="btn btn-info" data-toggle="button" aria-pressed="false" autocomplete="off" name="scheduleApp" value="Schedule">
+</div>
+
+<footer class="py-3 my-4">
+    <p class="text-center text-muted">© 2023</p>
+</footer>
+
 <script src="../javascript/login.js" type="application/javascript"></script>
 </body>
 </html>
