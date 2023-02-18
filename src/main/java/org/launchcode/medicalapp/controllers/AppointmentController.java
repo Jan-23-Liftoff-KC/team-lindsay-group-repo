@@ -8,14 +8,13 @@ import org.launchcode.medicalapp.repositories.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 
 @Controller
-@RequestMapping(value = "appointments", method = {RequestMethod.GET, RequestMethod.POST})
+//@RequestMapping("appointments")
+//@RequestMapping(value = "appointments", method = {RequestMethod.GET, RequestMethod.POST})
 public class AppointmentController {
 
     @Autowired
@@ -27,16 +26,16 @@ public class AppointmentController {
 
     static HashMap<String, String> columnChoices = new HashMap<>();
 
-    public AppointmentController () {
+//    public AppointmentController () {
+//
+//        columnChoices.put("all", "All");
+//        columnChoices.put("patient", "Patient");
+//        columnChoices.put("doctors", "Doctors");
+//        columnChoices.put("appointments", "Appointments");
+//
+//    }
 
-        columnChoices.put("all", "All");
-        columnChoices.put("patient", "Patient");
-        columnChoices.put("doctors", "Doctors");
-        columnChoices.put("appointments", "Appointments");
-
-    }
-
-    @RequestMapping("")
+    @GetMapping("appointments")
     public String appointment(Model model) {
         model.addAttribute("doctors", DoctorRepository.findAll());
         model.addAttribute("patients", PatientRepository.findAll());
@@ -44,18 +43,18 @@ public class AppointmentController {
         return "appointments";
     }
 
-    @RequestMapping(value = "appointments")
-    public String listAppointmentsByColumnAndValue(Model model, @RequestParam String column, @RequestParam String value) {
-        Iterable<Appointment> appointments;
-        if (column.toLowerCase().equals("all")){
-            appointments = AppointmentRepository.findAll();
-            model.addAttribute("title", "All Appointments");
-        } else {
-            appointments = AppointmentData.findByColumnAndValue(column, value, AppointmentRepository.findAll());
-            model.addAttribute("title", "Appointments with " + columnChoices.get(column) + ": " + value);
-        }
-        model.addAttribute("appointments", appointments);
+    @RequestMapping("appointment/{appointmentId}")
+    public String listAppointmentsByColumnAndValue(@PathVariable int appointmentId, Model model) {
+//        Iterable<Appointment> appointments;
+//////        if (column.toLowerCase().equals("all")){
+//////            appointments = AppointmentRepository.findAll();
+////            model.addAttribute("title", "All Appointments");
+////        } else {
+////            appointments = AppointmentData.findByColumnAndValue(column, value, AppointmentRepository.findAll());
+////            model.addAttribute("title", "Appointments with " + columnChoices.get(column) + ": " + value);
+////        }
+//        model.addAttribute("appointments", appointments);
 
-        return "list-appointments";
+        return "appointment";
     }
 }

@@ -1,81 +1,46 @@
 package org.launchcode.medicalapp.models;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.launchcode.medicalapp.dtos.AppointmentDto;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "Appointments")
 @Data
-@NoArgsConstructor
 public class Appointment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "appointment", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JsonManagedReference
-    private Set<Patient> patientSet = new HashSet<>();
+    @DateTimeFormat(pattern = "dd/MM/yyyy h:mm a")
+    private Date appointmentDate;
 
-    @OneToOne
-    @JoinColumn(name = "appointment_id")
-    private Appointment appointment;
+    // 0-Cancelled by patient, 1-Active, 2-Completed
+    private Integer status;
 
-    @OneToOne
-    @JoinColumn(name = "doctor_id")
-    private Doctor doctor;
-    @OneToOne
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
     @ManyToOne
-    @JoinColumn(name="illness_id")
-    private Illness illness;
+    @JsonBackReference
+    private Doctor doctor;
 
-    private Date date;
+    @ManyToOne
+    @JsonBackReference
+    private Patient patient;
 
-    public Doctor getDoctor() {
-        return doctor;
-    }
-
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
-
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
-
-    public Illness getIllness() {
-        return illness;
-    }
-
-    public void setIllness(Illness illness) {
-        this.illness = illness;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public Appointment getAppointment() {
-        return appointment;
-    }
-
-    public void setAppointment(Appointment appointment) {
-        this.appointment = appointment;
+    public Appointment(AppointmentDto appointmentDto){
+        if (appointmentDto.getAppointmentDate()!= null){
+            this.appointmentDate = appointmentDto.getAppointmentDate();
+        }
+        if (appointmentDto.getStatus()!= null){
+            this.status = appointmentDto.getStatus();
+        }
     }
 }

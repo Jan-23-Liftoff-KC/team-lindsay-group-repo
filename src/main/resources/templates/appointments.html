@@ -17,38 +17,26 @@
 
 <body>
 
-<div th:replace="fragments :: page-header"></div>
-
 <div class="container body-content">
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
     <h2 class = "centered">Upcoming Appointments</h2>
 </div>
-
-<table class="centeredTable">
-    <tr>
-        <th>All</th>
-        <th>Patient</th>
-        <th>Doctor</th>
-    </tr>
-
-    <tr>
-        <td>
-            <li>
-                <a th:href="@{/list/appointments(column='All',value='View All')}">View All</a>
-            </li>
-        </td>
-        <td>
-            <li th:each="patient : ${patients}">
-                <a th:href="@{/appointments(column=patient,value=${patient.last_name})}" th:text="${patient.last_name}"></a>
-            </li>
-        </td>
-        <td>
-            <li th:each="doctor : ${doctors}">
-                <a th:href="@{/appointments(column=doctor,value=${doctor.last_name})}" th:text="${doctor.last_name}"></a>
-            </li>
-        </td>
-    </tr>
-</table>
+<p>
+    Appointments:
+    <ul th:each="appointment : ${appointments}">
+        <li>
+            <a th:href="@{'/appointment/' + ${appointment.id}} " th:text="${appointment.appointmentDate}"></a>
+        </li>
+    </ul>
+</p>
+<!--<p>-->
+<!--    Skills:-->
+<!--<ul th:each="skill : ${job.skills}">-->
+<!--    <li>-->
+<!--        <a th:href="@{'/skills/view/' + ${skill.id}}" th:text="${skill.name}"></a>-->
+<!--    </li>-->
+<!--</ul> -->
+<!--</p>-->
 
 </body>
 </html>
