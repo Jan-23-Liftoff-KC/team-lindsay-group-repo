@@ -24,13 +24,12 @@
 
 <div class="container" id="home-container">
 
-    <div class="header-container">
-        <h1>Medical App</h1>
-        <h2>An app for healthcare providers</h2>
-        <img class="header-image" src="" alt="Medical App Logo" height="150" width="150">
+    <div id="prettyTop">
+        <img src="./images/MEDPRO3.png" alt="Med Pro" width="100%" class="center">
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <nav class="navbar navbar-expand-lg bg-light" >
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -41,10 +40,12 @@
                     <a class="nav-link" href="register.html">Register</a>
                     <a class="nav-link" href="login.html">Login</a>
                     <a class="btn btn-danger navbar-btn" href="./login.html" onclick="handleLogout()">Logout</a>
+                    <br><br>
                 </div>
             </div>
         </div>
     </nav>
+
 
 
 
@@ -80,7 +81,7 @@
             <div class="mb-3 form-group">
                 <textarea class="form-control" id="patient-doctorNotes" placeholder="&#xF440;&ensp;Notes" rows="5"></textarea>
             </div>
-            <button id="submit-button" type="submit" class="btn btn-primary mt-1">Submit</button>
+            <button id="submit-button" type="submit" class="btn btn-info mt-1" data-toggle="button" aria-pressed="false" autocomplete="off">Submit</button>
         </form>
     </div>
 </div>
@@ -104,8 +105,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" id="update-patient-button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+                <button type="button" class="btn btn-secondary" data-toggle="button" aria-pressed="false" autocomplete="off" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="update-patient-button" class="btn btn-info" data-toggle="button" aria-pressed="false" autocomplete="off" data-bs-dismiss="modal">Save</button>
             </div>
         </div>
     </div>
