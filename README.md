@@ -56,10 +56,7 @@ The application provides the following user (doctor/provider) scenarios:
 ## Data Model and Entity Mapping
 
 1. One doctor to many patients (@OneToMany on the Doctor @Entity model)
-2. Many patients to one doctor (@ManyToOne on the Patient @Entity model)
-  
-## Below are the project's requirements, which my application exceeded (7 of the following had to be met in order to pass the project):
-  
+2. Many patients to one doctor (@ManyToOne on the Patient @Entity model)  
   
 ## Database and Back-end
 1. Has at least 3 tables
@@ -78,9 +75,10 @@ The application provides the following user (doctor/provider) scenarios:
 2. Discord bot
 3. Command Line Interface
 
-## Bonus and Additional Features
-1.  My application is using a GET request to display data from OpenFDA through its [Drug API Endpoints](https://open.fda.gov/apis/drug/ "OpenFDA Drug API Endpoints").
-  2. I use a dropdown menu that allows the provider to select a drug from the OpenFDA Drug API. The drug dropdown is populated with a list of the most common medications seen on the NCLEX-RN exam, which is required for registered nurse licensure in the USA, Canada, and Australia.
+## 
+Additional Features
+1.  The application is using a GET request to display data from OpenFDA through its [Drug API Endpoints](https://open.fda.gov/apis/drug/ "OpenFDA Drug API Endpoints").
+  2. A dropdown menu allows the provider to select a drug from the OpenFDA Drug API. The drug dropdown is populated with a list of the most common medications seen on the NCLEX-RN exam, which is required for registered nurse licensure in the USA, Canada, and Australia.
   3. The selected drug is saved to the database table on submission of the patient form.
 4. The provider can view associated drug information (e.g., adverse reactions, boxed warnings, and dosage and administration) pulled from the [OpenFDA Drug API](https://open.fda.gov/apis/drug/ "OpenFDA Drug API").
 
