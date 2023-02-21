@@ -75,8 +75,7 @@ The application provides the following user (doctor/provider) scenarios:
 2. Discord bot
 3. Command Line Interface
 
-## 
-Additional Features
+## Additional Features
 1.  The application is using a GET request to display data from OpenFDA through its [Drug API Endpoints](https://open.fda.gov/apis/drug/ "OpenFDA Drug API Endpoints").
   2. A dropdown menu allows the provider to select a drug from the OpenFDA Drug API. The drug dropdown is populated with a list of the most common medications seen on the NCLEX-RN exam, which is required for registered nurse licensure in the USA, Canada, and Australia.
   3. The selected drug is saved to the database table on submission of the patient form.
