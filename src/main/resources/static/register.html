@@ -10,9 +10,32 @@
     <link rel="stylesheet" href="../css/register.css" type="text/css">
     <title>Register</title>
 </head>
+
+<div id="prettyTop">
+    <img src="./images/MEDPRO3.png" alt="Med Pro" width="100%" class="center">
+</div>
+
+
+<nav class="navbar navbar-expand-lg bg-light" >
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                <a class="nav-link" href="register.html">Register</a>
+                <a class="nav-link" href="login.html">Login</a>
+                <a class="btn btn-danger navbar-btn" href="./login.html" onclick="handleLogout()">Logout</a>
+                <br><br>
+            </div>
+        </div>
+    </div>
+</nav>
+
 <body class="container">
 <div class="container-md">
-    <h1>REGISTER</h1>
+    <h1>Register below:</h1>
     <form id="register-form">
         <div class="form-group">
             <label for="register-doctorname">Provider name</label>
@@ -23,11 +46,16 @@
             <input type="password" class="form-control" id="register-password" placeholder="Password (Min 8 Characters)">
         </div>
         <div class="mt-1">
-            <button id="submit-button" type="submit" class="btn btn-primary">Submit</button>
+            <button id="submit-button" type="submit" class="btn btn-info" data-toggle="button" aria-pressed="false" autocomplete="off">Submit</button>
             <a href="./login.html" class="btn btn-secondary">Login</a>
         </div>
     </form>
 </div>
+
+<footer class="py-3 my-4">
+    <p class="text-center text-muted">© 2023</p>
+</footer>
+
 <script src="../javascript/register.js" type="application/javascript"></script>
 </body>
 </html>

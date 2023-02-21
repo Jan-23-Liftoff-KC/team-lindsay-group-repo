@@ -13,7 +13,7 @@ import java.util.List;
 public class DoctorController {
     @Autowired
     private DoctorService doctorService;
-   // @Autowired
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @GetMapping("")
@@ -22,8 +22,8 @@ public class DoctorController {
     }
     @PostMapping("/register")
     public List<String> addDoctor(@RequestBody DoctorDto doctorDto){
-        //String passHash = passwordEncoder.encode(doctorDto.getPassword());
-        //doctorDto.setPassword(passHash);
+        String passHash = passwordEncoder.encode(doctorDto.getPassword());
+        doctorDto.setPassword(passHash);
         return doctorService.addDoctor(doctorDto);
     }
 
