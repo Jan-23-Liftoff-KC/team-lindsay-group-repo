@@ -98,7 +98,7 @@ $ git clone https://github.com/Jan-23-Liftoff-KC/team-lindsay-group-repo.git
 
 Create new backend server:
 
-Create a free database server with AWS or use pgAdmin 4 on your local machine to create and maintain a local postgreSQL database session
+Create a free database server with AWS or use [pgAdmin 4](https://www.pgadmin.org/download/ "pgAdmin 4") on your local machine to create and maintain a local postgreSQL database session
 
 
 Update application properties file:
@@ -121,7 +121,7 @@ spring.datasource.schema=classpath:/schema.sql
 spring.datasource.continue-on-error=true
 ```
 
-Get URI from AWS or use pgAdmin 4 to connect to your localhost. If you're using pgAdmin 4, the URI will look something like this:
+Get URI from AWS or use pgAdmin 4 to connect to your localhost. If you're using [pgAdmin 4](https://www.pgadmin.org/download/ "pgAdmin 4"), the URI will look something like this:
 
 ```
 spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
