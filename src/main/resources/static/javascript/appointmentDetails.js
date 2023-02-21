@@ -23,7 +23,7 @@ const getAllAppointments = async () =>{
         if(result.length === 0)
         {
         const divShowData = document.getElementById('showData');
-            divShowData.innerHTML = "No data found";
+            divShowData.innerHTML = "You don't have any appointments scheduled!!";
         }
         else
         {

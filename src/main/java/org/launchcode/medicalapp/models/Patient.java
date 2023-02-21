@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.launchcode.medicalapp.dtos.PatientDto;
 
 import javax.persistence.*;
@@ -18,6 +19,7 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString(exclude = {"email"})
 public class Patient {
 
     @Id
@@ -49,6 +51,9 @@ public class Patient {
     @Column
     //@Pattern(regexp="(^$|[0-9]{10})", message = "Mobile Number should be Numeric and 10 digits")
     private String phoneNo;
+
+    @Column
+    private String password;
 
     @ManyToOne
     @JsonBackReference
@@ -84,6 +89,9 @@ public class Patient {
         }
         if (patientDto.getPhoneNo() != null){
             this.phoneNo = patientDto.getPhoneNo();
+        }
+        if (patientDto.getPassword() != null){
+            this.password = patientDto.getPassword();
         }
     }
 

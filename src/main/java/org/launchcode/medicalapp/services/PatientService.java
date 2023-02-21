@@ -13,13 +13,15 @@ public interface PatientService {
     void addPatient(PatientDto patientDto, Long doctorId);
 
     @Transactional
-    PatientDto addAndGetPatient(PatientDto patientDto, Long doctorId);
+    void registerNewPatient(PatientDto patientDto, Long doctorId);
 
     @Transactional
     void deletePatientById(Long patientId);
 
     @Transactional
     void updatePatientById(PatientDto patientDto);
+
+    public List<String> patientLogin(PatientDto patientDto);
 
     Optional<PatientDto> getPatientById(Long patientId);
 }

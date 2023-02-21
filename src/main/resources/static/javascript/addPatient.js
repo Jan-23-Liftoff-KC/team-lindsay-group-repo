@@ -3,6 +3,7 @@ const addPatientFirstName = document.getElementById('addPatient-firstName')
 const addPatientLastName = document.getElementById('addPatient-lastName')
 const addPatientAge = document.getElementById('addPatient-age')
 const addPatientEmail = document.getElementById('addPatient-email')
+const addPatientPassword = document.getElementById('addPatient-password')
 const addPatientPhoneNo = document.getElementById('addPatient-phoneNo')
 const addPatientDoctorId = document.getElementById('addPatient-doctorId')
 
@@ -22,7 +23,8 @@ const handleSubmit = async (e) =>{
         lastName: addPatientLastName.value,
         age: addPatientAge.value,
         email: addPatientEmail.value,
-        phoneNo: addPatientPhoneNo.value
+        phoneNo: addPatientPhoneNo.value,
+        password: addPatientPassword.value
     }
 
     const response = await fetch(`${baseUrl}/patients/addpatient/doctor/${doctorId}`, {
@@ -33,8 +35,7 @@ const handleSubmit = async (e) =>{
     .catch(err => console.error(err.message))
 
     if(response.status === 200){
-        const responseArr = await response.json()
-        window.location.replace("http://localhost:8080/addAppointment.html?docId="+doctorId+"&patId="+responseArr.id);
+        window.location.replace("http://localhost:8080/patientLogin.html");
     }
 }
 
