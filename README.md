@@ -1,6 +1,6 @@
 # MEDPRO 
 
-MEDPRO is a Java Spring Boot project application created for doctors, nurses, and medical providers to keep track of patient data.
+MEDPRO is a Java Spring Boot application created for doctors, nurses, and medical providers to keep track of patient data.
 
 It is the group capstone project for LaunchCode's Liftoff program. All CRUD operations (Create, Read/Retrieve, Update, and Delete) are demonstrated, which are the four basic functions of the persistence storage. 
 
