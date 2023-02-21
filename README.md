@@ -16,7 +16,7 @@ It is the group capstone project for LaunchCode's Liftoff program. All CRUD oper
 - [Data Model and Entity Mapping](#data-model-and-entity-mapping)
 - [Database and Back-end](#Database-and-Back-end)
 - [Front-end](#Front-end)
-- [Bonus and Additional Features](#Bonus-and-Additional-Features)
+- [Additional Features](#Additional-Features)
 - [Installation](#installation)
 - [About the Developers](#about-the-developers)
 
