@@ -18,7 +18,7 @@ import static java.util.stream.Collectors.toList;
 public class DoctorServiceImpl implements DoctorService {
     @Autowired
     private DoctorRepository doctorRepository;
-    //@Autowired
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Override
@@ -27,7 +27,7 @@ public class DoctorServiceImpl implements DoctorService {
         List<String> response = new ArrayList<>();
         Doctor doctor = new Doctor(doctorDto);
         doctorRepository.saveAndFlush(doctor);
-        response.add("http://localhost:8080/templates/login.html");
+        response.add("http://localhost:8080/login.html");
         return response;
     }
 
@@ -37,7 +37,7 @@ public class DoctorServiceImpl implements DoctorService {
         Optional<Doctor> doctorOptional = doctorRepository.findByDoctorName(doctorDto.getDoctorName());
         if(doctorOptional.isPresent()){
             if(passwordEncoder.matches(doctorDto.getPassword(), doctorOptional.get().getPassword())){
-                response.add("http://localhost:8080/templates/home.html");
+                response.add("http://localhost:8080/home.html");
                 response.add(String.valueOf(doctorOptional.get().getId()));
             } else {
                 response.add("Doctor name or password incorrect");

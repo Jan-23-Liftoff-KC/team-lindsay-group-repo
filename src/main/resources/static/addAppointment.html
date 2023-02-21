@@ -51,6 +51,46 @@
 <script src="../javascript/addAppointment.js" type="application/javascript"></script>
 
 <script>
+
+    <title>Schedule Appointment</title>
+</head>
+<div class="container" id="home-container">
+
+    <div id="prettyTop">
+        <img src="./images/MEDPRO3.png" alt="Med Pro" width="100%" class="center">
+    </div>
+    <body class="container" >
+    <div class="container">
+        <div class="col-md-4 mt-5">
+            <h2>Schedule Appointment</h2>
+            <br>
+            <form id="addAppointment" style="max-width:600px;">
+                <div class="form-group">
+                    <label for="addAppointment-providerName" id="addAppointment-providerName">Provider Name: </label>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="addAppointment-appDateTime">Date:</label>
+                    <br><br>
+                    <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"
+                               id="addAppointment-appDateTime" placeholder="Date"/>
+                        <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="mt-1">
+                    <button id="submit-button" type="submit" class="btn btn-info" data-toggle="button" aria-pressed="false" autocomplete="off">Schedule Appointment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../javascript/addAppointment.js" type="application/javascript"></script>
+
+    <script>
     $.fn.datetimepicker.Constructor.Default = $.extend({}, $.fn.datetimepicker.Constructor.Default, {
         icons: {
             time: 'far fa-clock',
@@ -74,5 +114,8 @@
     });
 
 </script>
-</body>
+    <footer class="py-3 my-4">
+        <p class="text-center text-muted">© 2023</p>
+    </footer>
+    </body>
 </html>

@@ -14,7 +14,6 @@ import java.util.Optional;
 public class DoctorController {
     @Autowired
     private DoctorService doctorService;
-
     @Autowired
     private PasswordEncoder passwordEncoder;
 
