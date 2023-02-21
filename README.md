@@ -85,7 +85,7 @@ The application provides the following user (doctor/provider) scenarios:
 
 #### Requirements:
 
-- Java 7.0
+- Java 11
 - Spring Boot
 
 To have this app running on your local computer, please follow the below steps:
