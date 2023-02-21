@@ -98,12 +98,34 @@ $ git clone https://github.com/Jan-23-Liftoff-KC/team-lindsay-group-repo.git
 
 Create new backend server:
 
-Create a free database server with AWS
+Create a free database server with AWS or use pgAdmin 4 on your local machine to create and maintain a local postgreSQL database session
 
 
 Update application properties file:
 
-Get URI from AWS
+```
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.show-sql=true
+spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+spring.datasource.username=username
+spring.datasource.password=password
+
+# Hibernate ddl auto (create, create-drop, update)
+spring.jpa.hibernate.ddl-auto=create-drop
+logging.level.sql=debug
+spring.jpa.show-sql=true
+
+spring.datasource.initialization-mode=always
+spring.datasource.initialize=true
+spring.datasource.schema=classpath:/schema.sql
+spring.datasource.continue-on-error=true
+```
+
+Get URI from AWS or use pgAdmin 4 to connect to your localhost. If you're using pgAdmin 4, the URI will look something like this:
+
+```
+spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+```
 
 
 Run the file in IntelliJ (or your IDE of choice)
