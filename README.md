@@ -93,7 +93,7 @@ To have this app running on your local computer, please follow the below steps:
 Clone repository:
 
 ```
-$ git clone https://github.comkevinptx/patientApp.git
+$ git clone https://github.com/Jan-23-Liftoff-KC/team-lindsay-group-repo.git
 ```
 
 Create new backend server:
