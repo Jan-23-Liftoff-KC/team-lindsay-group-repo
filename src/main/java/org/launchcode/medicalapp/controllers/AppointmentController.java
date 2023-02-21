@@ -5,6 +5,7 @@ import org.launchcode.medicalapp.services.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -27,8 +28,8 @@ public class AppointmentController {
 
     //Add appointment details with patient_id and doctor_id
     @PostMapping("doctor/{doctorId}/patient/{patientId}")
-    public void addAppointment(@RequestBody AppointmentDto appointmentDto, @PathVariable Long patientId, @PathVariable Long doctorId) {
-        appointmentService.addAppointment(appointmentDto, doctorId, patientId);
+    public AppointmentDto addAppointment(@Valid @RequestBody AppointmentDto appointmentDto, @PathVariable Long patientId, @PathVariable Long doctorId) {
+        return  appointmentService.addAppointment(appointmentDto, doctorId, patientId);
     }
 
     //Edit or update appointment details with appointment_id as reference

@@ -4,7 +4,6 @@ import org.launchcode.medicalapp.models.Appointment;
 import org.launchcode.medicalapp.models.Doctor;
 import org.launchcode.medicalapp.models.Patient;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
