@@ -5,7 +5,7 @@
 }
 
 body {
-   background-color: #f0f8ff;
+   background-color: #fffff;
    padding: 0;
    margin: 0;
    width: 100%;
@@ -15,55 +15,17 @@ body {
     margin-top: 10vh;
 }
 
+#prettyTop{
+text-align: center;
+padding-bottom: 30px;
+}
+
 .mt-1{
-    margin-top: 2rem!important;
+text-align: center;
+padding-top: 20px;
 }
 
-.container-md{
-    margin-top: 2rem
+h1{
+text-align: center;
+padding-top: 30px;
 }
-
-label{
-    margin-bottom: 1rem;
-}
-
-.header-container{
-    width: 100%;
-    margin-bottom: 1.5rem;
-}
-
-.form-group{
-    margin-bottom: 1rem;
-}
-
-
-h1, h2{
-    text-align: center;
-}
-
-.h2, h2 {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.header-image{
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-}
-
-.btn{
-    margin-right: 1rem;
-}
-
-.navbar-expand-lg .navbar-nav .nav-link {
-    padding-right: 1rem;
-    padding-left: 1rem;
-    }
-
-
-@media (min-width: 1200px)
-.h2, h2 {
-    font-size: 1rem;
-}
-
