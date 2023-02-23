@@ -13,6 +13,7 @@ It is the group capstone project for LaunchCode's Liftoff program. All CRUD oper
 - [Technologies Used](#technologies-used)
 - [Crud Operations](#CRUD-operations-applying-rESTful-principles)
 - [User-Scenarios](#User-Scenarios)
+- [User-Stories](#User-Stories)
 - [Data Model and Entity Mapping](#data-model-and-entity-mapping)
 - [Database and Back-end](#Database-and-Back-end)
 - [Front-end](#Front-end)
@@ -45,13 +46,35 @@ The application provides the following user (doctor/provider) scenarios:
 
 1. Creating a doctor/provider account: The doctor/provider (user) needs to create an account before patient information is saved in the back end.
 
-2. Logging in: Doctors/Providers (users) can log in to their account.
+2. Provider Log in - the medical professionals will be able to create a profile and log into their account.
 
-3. Filling out and submitting a form: Doctors/Providers (users) can fill form field information and submit it. That data is then saved in the database.
+3. Create and Update Records: the medical provider will be able to create and update notes for certain patients.
 
-4. Editing: Doctors/Providers (users) can edit patient information.
+4. Deleting: Doctors/Providers (users) can delete patient information.
 
-5. Deleting: Doctors/Providers (users) can delete patient information.
+5. Accessing Records: the medical provider will be able to access their patient's profiles/records.
+
+6. Appointment Requests: the patients will have the ability to schedule their appointments with their medical provider.
+
+## User Stories
+MEDPRO(Health Care app to maintain patient visit updates from the provider side and the appointments from patient side)
+We have 2 different target users in our project. The first and primary user is a medical provider and the other user is a patient. Our application helps the provider to view the scheduled appointments and related patient details. They can also update the diagnostics, prescription, and the additional notes on the appointment visit for a selected patient. The app also allows the patient to schedule an appointment with the primary care provider and add or cancel appointments. 
+
+Authentication: we have separate authentication(login feature) pages to authenticate both the users. 
+Doctor Flow:
+1. New doctor registration
+2. Doctor Login/Logout
+3. Add Patient  details, diagnostics, prescription
+4. Edit/update Patient
+5. Delete Patient
+6. View Appointments and pull patient record.
+
+Patient Flow:
+1. New Patient registration
+2. Patient Login/Logout
+3. View list of Appointments
+4. Add New Appointment
+5. Cancel Appointment
 
 ## Data Model and Entity Mapping
 
