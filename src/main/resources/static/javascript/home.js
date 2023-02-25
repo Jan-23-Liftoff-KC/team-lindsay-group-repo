@@ -1,3 +1,4 @@
+//create the Cookie
 const cookieArr = document.cookie.split("=");
 const doctorId = cookieArr[1];
 
@@ -382,3 +383,4 @@ drugFields.innerHTML = `
 patientPrescriptionsDisplay.append(drugFields);
 })
 }
+

@@ -7,11 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import static java.util.stream.Collectors.toList;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import static java.util.stream.Collectors.toList;
 
 @Service
 public class DoctorServiceImpl implements DoctorService {
@@ -26,7 +27,7 @@ public class DoctorServiceImpl implements DoctorService {
         List<String> response = new ArrayList<>();
         Doctor doctor = new Doctor(doctorDto);
         doctorRepository.saveAndFlush(doctor);
-        response.add("http://localhost:8080/templates/login.html");
+        response.add("http://localhost:8080/login.html");
         return response;
     }
 
@@ -36,8 +37,7 @@ public class DoctorServiceImpl implements DoctorService {
         Optional<Doctor> doctorOptional = doctorRepository.findByDoctorName(doctorDto.getDoctorName());
         if(doctorOptional.isPresent()){
             if(passwordEncoder.matches(doctorDto.getPassword(), doctorOptional.get().getPassword())){
-//                response.add("http://localhost:8080/templates/login.html");
-//                response.add("http://localhost:8080/login");
+                response.add("http://localhost:8080/home.html");
                 response.add(String.valueOf(doctorOptional.get().getId()));
             } else {
                 response.add("Doctor name or password incorrect");
@@ -55,5 +55,14 @@ public class DoctorServiceImpl implements DoctorService {
             return new DoctorDto(entity);
         }).collect(toList());
         //or .collect(Collectors.toList());
+    }
+
+    @Override
+    public Optional<DoctorDto> getDoctorById(Long doctorId) {
+        Optional<Doctor> doctorOptional = doctorRepository.findById(doctorId);
+        if (doctorOptional.isPresent()){
+            return Optional.of(new DoctorDto(doctorOptional.get()));
+        }
+        return Optional.empty();
     }
 }

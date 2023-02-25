@@ -20,6 +20,12 @@ public class PatientDto implements Serializable {
     private Integer age;
     private DoctorDto doctorDto;
 
+    private String email;
+
+    private String phoneNo;
+
+    private String password;
+
     public PatientDto(Patient patient){
         if (patient.getId() != null){
             this.id = patient.getId();
@@ -41,6 +47,15 @@ public class PatientDto implements Serializable {
         }
         if (patient.getAge() != null){
             this.age = patient.getAge();
+        }
+        if (patient.getEmail() != null){
+            this.email = patient.getEmail();
+        }
+        if (patient.getPhoneNo() != null){
+            this.phoneNo = patient.getPhoneNo();
+        }
+        if (patient.getPassword() != null){
+            this.password = patient.getPassword();
         }
         this.doctorDto = new DoctorDto();
         this.doctorDto.setDoctorName(patient.getDoctor().getDoctorName());

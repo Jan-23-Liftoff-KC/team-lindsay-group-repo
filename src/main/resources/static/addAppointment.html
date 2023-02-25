@@ -16,46 +16,47 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="/assets/moment/moment.min.js"></script>
     <script type="text/javascript" src="/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.js"></script>
-
+    <script src="../javascript/common.js" type="application/javascript"></script>
     <title>Schedule Appointment</title>
 </head>
-<div class="container" id="home-container">
+    <body class="container" >
+    <div class="container" id="home-container">
 
-    <div id="prettyTop">
-        <img src="./images/MEDPRO3.png" alt="Med Pro" width="100%" class="center">
-    </div>
-<body class="container" >
-<div class="container">
-   <div class="col-md-4 mt-5">
-    <h2>Schedule Appointment</h2>
-       <br>
-    <form id="addAppointment" style="max-width:600px;">
-        <div class="form-group">
-            <label for="addAppointment-providerName" id="addAppointment-providerName">Provider Name: </label>
+        <div id="prettyTop">
+            <img src="MEDPRO3.png" alt="Med Pro" width="100%" class="center">
         </div>
-        <br>
-        <div class="form-group">
-            <label for="addAppointment-appDateTime">Date:</label>
-            <br><br>
-            <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"
-                       id="addAppointment-appDateTime" placeholder="Date"/>
-                <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
-                    <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>
+    <div class="container">
+        <div class="col-md-4 mt-5">
+            <h2>Schedule Appointment</h2>
+            <br>
+            <form id="addAppointment" style="max-width:600px;">
+                <div class="form-group">
+                    <label for="addAppointment-providerName" id="addAppointment-providerName">Provider Name: </label>
                 </div>
-            </div>
+                <br>
+                <div class="form-group">
+                    <label for="addAppointment-appDateTime">Date:</label>
+                    <br><br>
+                    <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"
+                               id="addAppointment-appDateTime" placeholder="Date"/>
+                        <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="mt-1">
+                    <button id="submit-button" type="submit" class="btn btn-info" data-toggle="button" aria-pressed="false" autocomplete="off">Schedule Appointment</button>
+                </div>
+            </form>
         </div>
-        <br>
-        <div class="mt-1">
-            <button id="submit-button" type="submit" class="btn btn-info" data-toggle="button" aria-pressed="false" autocomplete="off">Schedule Appointment</button>
-        </div>
-       </form>
-</div>
-</div>
+    </div>
+    </div>
 
-<script src="../javascript/addAppointment.js" type="application/javascript"></script>
+    <script src="../javascript/addAppointment.js" type="application/javascript"></script>
 
-<script>
+    <script>
     $.fn.datetimepicker.Constructor.Default = $.extend({}, $.fn.datetimepicker.Constructor.Default, {
         icons: {
             time: 'far fa-clock',
@@ -77,10 +78,12 @@
         minDate:new Date(),
         daysOfWeekDisabled: [0, 6]
     });
-
 </script>
+
+<script src="../javascript/addAppointment.js" type="application/javascript"></script>
+
 <footer class="py-3 my-4">
-    <p class="text-center text-muted">© 2023</p>
-</footer>
-</body>
+        <p class="text-center text-muted">© 2023</p>
+    </footer>
+    </body>
 </html>
