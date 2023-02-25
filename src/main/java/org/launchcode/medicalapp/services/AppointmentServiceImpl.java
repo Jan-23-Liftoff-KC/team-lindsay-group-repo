@@ -36,7 +36,7 @@ public class AppointmentServiceImpl implements AppointmentService{
         Optional<Doctor> doctorOptional = doctorRepository.findById(doctorId);
         if (doctorOptional.isPresent()){
             List<Appointment> appointmentList = appointmentRepository.findAllByDoctorEquals(doctorOptional.get());
-            return appointmentList.stream().filter(x -> x.getStatus() == 1 && (x.getAppointmentDate().compareTo(d) == 0)).map(appointment -> new AppointmentDto(appointment)).collect(Collectors.toList());
+            return appointmentList.stream().filter(x -> x.getStatus() == 1 && (x.getAppointmentDate().compareTo(d) >= 0)).map(appointment -> new AppointmentDto(appointment)).collect(Collectors.toList());
         }
         return Collections.emptyList();
     }
