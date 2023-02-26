@@ -18,24 +18,40 @@
     <script type="text/javascript" src="/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.js"></script>
     <script src="../javascript/common.js" type="application/javascript"></script>
     <title>Schedule Appointment</title>
+    <style>
+        .input-group-text {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 0.75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            text-align: center;
+            white-space: nowrap;
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            m: ;
+        }
+    </style>
+    <div id="prettyTop">
+        <img src="MEDPRO3.png" alt="Med Pro" width="100%" class="center">
+    </div>
 </head>
     <body class="container" >
     <div class="container" id="home-container">
-
-        <div id="prettyTop">
-            <img src="MEDPRO3.png" alt="Med Pro" width="100%" class="center">
-        </div>
     <div class="container">
         <div class="col-md-4 mt-5">
             <h2>Schedule Appointment</h2>
             <br>
-            <form id="addAppointment" style="max-width:600px;">
+            <form id="addAppointment" style="max-width:100%;">
                 <div class="form-group">
                     <label for="addAppointment-providerName" id="addAppointment-providerName">Provider Name: </label>
                 </div>
                 <br>
                 <div class="form-group">
-                    <label for="addAppointment-appDateTime">Date:</label>
+                    <label for="addAppointment-appDateTime">Choose a Date and Time</label>
                     <br><br>
                     <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
                         <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"

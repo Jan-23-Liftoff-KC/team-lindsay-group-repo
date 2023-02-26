@@ -12,10 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.text.SimpleDateFormat;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -36,7 +33,9 @@ public class AppointmentServiceImpl implements AppointmentService{
         Optional<Doctor> doctorOptional = doctorRepository.findById(doctorId);
         if (doctorOptional.isPresent()){
             List<Appointment> appointmentList = appointmentRepository.findAllByDoctorEquals(doctorOptional.get());
-            return appointmentList.stream().filter(x -> x.getStatus() == 1 && (x.getAppointmentDate().compareTo(d) == 0)).map(appointment -> new AppointmentDto(appointment)).collect(Collectors.toList());
+            return appointmentList.stream().filter(x -> x.getStatus() == 1 && (x.getAppointmentDate().compareTo(d) >= 0))
+                    .sorted(Comparator.comparing(Appointment::getAppointmentDate))
+                    .map(appointment -> new AppointmentDto(appointment)).collect(Collectors.toList());
         }
         return Collections.emptyList();
     }
@@ -45,10 +44,10 @@ public class AppointmentServiceImpl implements AppointmentService{
     public List<AppointmentDto> getActiveAppointmentsByPatientId(Long patientId) {
         Optional<Patient>  patientOptional = patientRepository.findById(patientId);
         if (patientOptional.isPresent()){
-
             List<Appointment> appointmentList = appointmentRepository.findAllByPatientEquals(patientOptional.get());
-            return appointmentList.stream().filter(x -> x.getStatus() == 1 && (x.getAppointmentDate().compareTo(d) > 0)).map(appointment -> new AppointmentDto(appointment)).collect(Collectors.toList());
-
+            return appointmentList.stream().filter(x -> x.getStatus() == 1 && (x.getAppointmentDate().compareTo(d) > 0))
+                    .sorted(Comparator.comparing(Appointment::getAppointmentDate))
+                    .map(appointment -> new AppointmentDto(appointment)).collect(Collectors.toList());
         }
         return Collections.emptyList();
     }

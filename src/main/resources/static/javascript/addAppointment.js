@@ -1,4 +1,4 @@
-const addPatientForm = document.getElementById('addAppointment');
+const addAppt = document.getElementById('addAppointment');
 const addProviderName = document.getElementById('addAppointment-providerName');
 const apptDateTime = document.getElementById('addAppointment-appDateTime');
 let doctorId = '';
@@ -49,5 +49,5 @@ const getDoctorAndPatient = async () =>{
 
 window.addEventListener('load', getDoctorAndPatient);
 
-addPatientForm.addEventListener("submit", handleSubmit);
+addAppt.addEventListener("submit", handleSubmit);
 

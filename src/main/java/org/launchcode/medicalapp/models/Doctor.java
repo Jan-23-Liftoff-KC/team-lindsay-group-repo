@@ -28,7 +28,7 @@ public class Doctor {
     @Column
     private String password;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "doctor_id", referencedColumnName = "id")
     @JsonManagedReference
     private Set<Patient> patientSet = new HashSet<>();
@@ -38,7 +38,7 @@ public class Doctor {
     @JsonManagedReference
     private Set<Patient> patientSet = new HashSet<>();*/
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "doctor_id", referencedColumnName = "id")
     @JsonManagedReference
     private Set<Appointment> appointmentSet = new HashSet<>();
