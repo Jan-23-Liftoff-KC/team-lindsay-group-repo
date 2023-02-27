@@ -1,4 +1,4 @@
-const addPatientForm = document.getElementById('addAppointment');
+const addAppointment = document.getElementById('addAppointment');
 const addProviderName = document.getElementById('addAppointment-providerName');
 const apptDateTime = document.getElementById('addAppointment-appDateTime');
 let doctorId = '';
