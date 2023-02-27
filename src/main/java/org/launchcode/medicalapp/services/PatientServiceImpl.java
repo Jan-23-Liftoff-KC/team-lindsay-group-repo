@@ -48,7 +48,7 @@ public class PatientServiceImpl implements PatientService {
     @Transactional
     public String registerNewPatient(PatientDto patientDto, Long doctorId) {
         Optional<Patient> patientOpt = patientRepository.findByEmail(patientDto.getEmail());
-        if (patientOpt != null){
+        if (!patientOpt.isEmpty()){
             return "Email already exist, Please enter a new email.";
         }
         Optional<Doctor> doctorOptional = doctorRepository.findById(doctorId);

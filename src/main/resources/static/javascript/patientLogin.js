@@ -60,7 +60,7 @@ const handleSubmit = async (e) =>{
 function setPatientLoginExpireCookie() {
   var now = new Date();
   var time = now.getTime();
-  var expireTime = time + 1000*60;
+  var expireTime = time + 1000*300;
   now.setTime(expireTime);
   document.cookie = 'med_app_pat_expires='+now.toString();
   console.log(document.cookie);  // 'Wed, 31 Oct 2012 08:50:17 UTC'
