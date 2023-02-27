@@ -1,6 +1,8 @@
-const addPatientForm = document.getElementById('addAppointment');
+const addAppt = document.getElementById('addAppointment');
 const addProviderName = document.getElementById('addAppointment-providerName');
 const apptDateTime = document.getElementById('addAppointment-appDateTime');
+const apptDetails = document.getElementById('appDetails');
+
 let doctorId = '';
 let patientId = '';
 
@@ -17,7 +19,6 @@ const handleSubmit = async (e) =>{
         appointmentDate: new Date(apptDateTime.value)
     }
 
-
     const response = await fetch(`${baseUrl}/appointments/doctor/${doctorId}/patient/${patientId}`, {
         method: "POST",
         body: JSON.stringify(bodyObj),
@@ -26,7 +27,6 @@ const handleSubmit = async (e) =>{
     .catch(err => console.error(err.message))
 
     if(response.status === 200){
-        const responseArr = await response.json();
         window.location.replace("http://localhost:8080/appointmentDetails.html?docId="+doctorId+"&patId="+patientId);
     }
 }
@@ -36,6 +36,7 @@ const getDoctorAndPatient = async () =>{
     let params = new URLSearchParams(window.location.search);
     doctorId = params.get('docId');
     patientId = params.get('patId');
+    apptDetails.setAttribute('href',"appointmentDetails.html?docId="+doctorId+"&patId="+patientId);
     const response = await fetch(`${baseUrl}/doctors/${doctorId}`)
                     .catch(err => console.error(err.message));
 
@@ -49,5 +50,5 @@ const getDoctorAndPatient = async () =>{
 
 window.addEventListener('load', getDoctorAndPatient);
 
-addPatientForm.addEventListener("submit", handleSubmit);
+addAppt.addEventListener("submit", handleSubmit);
 

@@ -25,9 +25,16 @@ padding-bottom: 30px;
 
 }
 .form-group {
-    padding-top: 20px;
-    padding-left: 25%;
+    padding: 1%;
 }
+
+body {
+   background-color: #f0f8ff;
+   padding: 0;
+   margin: 0;
+   width: 100%;
+}
+
 .instruction {
     text-align: left;
     padding-left: 15%;

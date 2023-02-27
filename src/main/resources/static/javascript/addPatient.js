@@ -35,7 +35,14 @@ const handleSubmit = async (e) =>{
     .catch(err => console.error(err.message))
 
     if(response.status === 200){
+        const result = await response.text();
+        if (result === "SUCCESS"){
         window.location.replace("http://localhost:8080/patientLogin.html");
+        }
+        else{
+        document.getElementById("uniqueCons").innerHTML = result;
+        }
+
     }
 }
 

@@ -1,5 +1,6 @@
 package org.launchcode.medicalapp.controllers;
 
+import org.jetbrains.annotations.NotNull;
 import org.launchcode.medicalapp.dtos.PatientDto;
 import org.launchcode.medicalapp.services.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +32,10 @@ public class PatientController {
     }
 
     @PostMapping("/addpatient/doctor/{doctorId}")
-    public void registerPatient(@RequestBody PatientDto patientDto, @PathVariable Long doctorId) {
+    public String registerPatient(@RequestBody @NotNull PatientDto patientDto, @PathVariable Long doctorId) {
         String passHash = passwordEncoder.encode(patientDto.getPassword());
         patientDto.setPassword(passHash);
-        patientService.registerNewPatient(patientDto, doctorId);
+        return patientService.registerNewPatient(patientDto, doctorId);
     }
 
     @DeleteMapping("/{patientId}")
@@ -45,6 +46,11 @@ public class PatientController {
     @PutMapping("/")
     public void updatePatient(@RequestBody PatientDto patientDto) {
         patientService.updatePatientById(patientDto);
+    }
+
+    @PutMapping("/{patientId}/update/diagnosis")
+    public void updatePatientDiagnosis(@RequestBody PatientDto patientDto) {
+        patientService.updatePatientDiagDetails(patientDto);
     }
 
     @GetMapping("/{patientId}")
