@@ -10,7 +10,6 @@ padding-bottom: 30px;
 }
 
 #form{
-    padding-top: 20px;
     text-align: center;
 }
 
@@ -25,16 +24,20 @@ padding-bottom: 30px;
 
 }
 .form-group {
-    padding-top: 20px;
-    padding-left: 25%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
 }
+
 .instruction {
-    text-align: left;
-    padding-left: 15%;
+    text-align: center;
 }
+
 h1{
 text-align: center;
 }
+
 .mt-1{
 text-align: center;
 padding-top: 20px;
@@ -43,5 +46,19 @@ padding-top: 20px;
 h3{
 text-align: center;
 padding-top: 30px;
-padding-left: 50px;
+}
+
+h2{
+text-align: center;
+}
+
+.bolded {
+    font-weight: bold;
+}
+#showdata{
+text-align:center;
+}
+
+#messageDiv{
+text-align: center;
 }

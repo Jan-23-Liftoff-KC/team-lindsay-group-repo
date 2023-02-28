@@ -110,7 +110,7 @@ let populateAppointmentTable = (appointments) => {
       let appointmentCard = document.createElement("div")
           appointmentCard.classList.add("m-2")
           appointmentCard.innerHTML = `
-              <div class="card d-flex" style="width: 25rem; height: 18rem;">
+              <div class="card d-flex" style="width: 25rem; height: 10rem;">
                   <div class="card-body d-flex flex-column  justify-content-between" style="height: available">
                       <p class="card-text"><span class="bolded">First name:</span> ${patientDto1.firstName}</p>
                       <p class="card-text"><span class="bolded">Last name:</span> ${patientDto1.lastName}</p>
