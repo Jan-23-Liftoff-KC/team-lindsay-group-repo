@@ -71,7 +71,6 @@ public class PatientServiceImpl implements PatientService {
             patient.setDiagnosis(patientDto.getDiagnosis());
             patient.setPrescriptions(patientDto.getPrescriptions());
             patient.setDoctorNotes(patientDto.getDoctorNotes());
-            patient.setBillingNotes(patientDto.getBillingNotes());
             patient.setEmail(patientDto.getEmail());
             patient.setPhoneNo(patientDto.getPhoneNo());
             patientRepository.saveAndFlush(patient);

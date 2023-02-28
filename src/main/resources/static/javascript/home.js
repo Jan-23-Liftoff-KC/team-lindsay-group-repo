@@ -16,7 +16,6 @@ let patientLastName = document.getElementById("patient-lastName-edit");
 let patientDiagnosis = document.getElementById("patient-diagnosis-edit");
 let patientPrescriptions = document.getElementById("patient-prescriptions-edit");
 let patientDoctorNotes = document.getElementById("patient-doctorNotes-edit");
-let patientBillingNotes = document.getElementById("patient-billingNotes-edit");
 
 
 let updatePatientBtn = document.getElementById("update-patient-button");
@@ -40,7 +39,6 @@ const handleSubmit = async (e) => {
         prescriptions: selectedOption,
 //        prescriptions: document.getElementById("patient-prescriptions").value,
         doctorNotes: document.getElementById("patient-doctorNotes").value,
-        billingNotes: document.getElementById("patient-billingNotes").value,
         diagnosis: document.getElementById("patient-diagnosis").value
     }
     await addPatient(bodyObj);
@@ -51,7 +49,6 @@ const handleSubmit = async (e) => {
     resultsDropdown.selectedIndex = 0;
     document.getElementById("patient-doctorNotes").value = '';
     document.getElementById("patient-diagnosis").value = '';
-    document.getElementById("patient-billingNotes").value = '';
 }
 
 async function addPatient(obj) {
@@ -104,8 +101,7 @@ async function handlePatientEdit(patientId){
         lastName: patientLastName.value,
         diagnosis: patientDiagnosis.value,
         prescriptions: patientPrescriptions.value,
-        doctorNotes: patientDoctorNotes.value,
-        billingNotes: patientBillingNotes.value
+        doctorNotes: patientDoctorNotes.value
     }
 
     await fetch(baseUrl, {
@@ -124,7 +120,7 @@ const createPatientCards = (array) => {
         let patientCard = document.createElement("div")
         patientCard.classList.add("m-2")
         patientCard.innerHTML = `
-            <div class="card d-flex" /*overflow-auto*/ style="width: 25rem; height: 18rem;">
+            <div class="card d-flex" style="width: 25rem; height: 18rem;">
                 <div class="card-body d-flex flex-column  justify-content-between" style="height: available">
                     <p class="card-text"><span class="bolded">First name:</span> ${obj.firstName}</p>
                     <p class="card-text"><span class="bolded">Last name:</span> ${obj.lastName}</p>
@@ -132,7 +128,6 @@ const createPatientCards = (array) => {
                     <p class="card-text"><span class="bolded">Diagnosis:</span> ${obj.diagnosis}</p>
                     <p class="card-text"><span class="bolded">Prescriptions:</span> ${obj.prescriptions}</p>
                     <p class="card-text"><span class="bolded">Notes:</span> ${obj.doctorNotes}</p>
-                    <p class="card-text"><span class="bolded">Billing Notes:</span> ${obj.billingNotes}</p>
                     <div class="d-flex justify-content-between">
                         <button class="btn btn-danger" onclick="handleDelete(${obj.id})">Delete</button>
                         <button onclick="getPatientById(${obj.id})" type="button" class="btn btn-primary"
@@ -167,7 +162,6 @@ const populateModal = (obj) =>{
     patientDiagnosis.innerText = obj.diagnosis
     patientPrescriptions.innerText = obj.prescriptions
     patientDoctorNotes.innerText = obj.doctorNotes
-    patientBillingNotes.innerText = obj.billingNotes
     updatePatientBtn.setAttribute('data-patient-id', obj.id)
 }
 getPatients(doctorId);
