@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header-container{
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+h1, h2{
+    text-align: center;
+}
+
+.header-image{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+}
+
+body {
+   background-color: #f0f8ff;
+   padding: 0;
+   margin: 0;
+   width: 100%;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+#patient-container{
+ width:100%
+}
+
+
+.form-control-plaintext {
+    font-weight: bold;
+}
+
+.bolded {
+    font-weight: bold;
+}
+
+.expandable {
+  overflow: hidden;
+  max-height: 50px;
+  transition: max-height 0.5s ease-out;
+}
+
+.expanded {
+  max-height: 10000px;
+}
+
+.ml-0{
+   margin-left: 0;
+}
+
+.pl-0{
+   padding-left: 0;
+}
+
+.mr-0{
+    margin-right: 0;
+}
+
+.pr-0{
+    padding-right: 0;
+}
+
+
+.container.ml-0 {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.container{
+    margin-top: 5vh;
+}
+
+#patient-container{
+    margin-bottom: 10vh;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.accordion-button {
+    font-size: inherit;
+}
+
+.accordion .btn {
+  white-space: normal;
+}
+
+.accordion-item {
+    border: 1px solid rgba(35, 65, 100, .15)
+}
+
+.accordion-button:not(.collapsed) {
+    color: inherit;
+    background: rgb(35,65,100);
+    color: #e8e8e8;
+}
+
+.accordion-button:not(.collapsed)::after  {
+    filter: brightness(00%) invert(70%);
+}
+
+.accordion-button:focus {
+    box-shadow: inherit;
+}
+
+
+.mb-3 {
+    margin-bottom: 2rem!important;
+}
+
+.m-2 {
+    margin-top: 3rem!important;
+}
+
+#patient-prescriptions{
+    margin-bottom: 2rem;
+}
+
+.h2, h2 {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+#patient-form{
+    margin-bottom: 5rem;
+}
+
+@media (min-width: 1200px)
+.h2, h2 {
+    font-size: 1rem;
+}
+
+@media (max-width: 767px) {
+    .accordion-body h3 {
+        font-size: calc(.95rem + 1.5vw);
+    }
+}
+

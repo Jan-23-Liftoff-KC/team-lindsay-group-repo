@@ -1,11 +1,10 @@
 package org.launchcode.medicalapp.services;
 
 import org.launchcode.medicalapp.dtos.DoctorDto;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-//import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 public interface DoctorService {
     @Transactional
@@ -14,4 +13,6 @@ public interface DoctorService {
     List<String> doctorLogin(DoctorDto doctorDto);
 
     List<DoctorDto> getAllDoctors();
+
+    Optional<DoctorDto> getDoctorById(Long doctorId);
 }

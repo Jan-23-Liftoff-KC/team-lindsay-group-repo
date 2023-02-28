@@ -13,7 +13,7 @@ public interface AppointmentService {
     List<AppointmentDto> getActiveAppointmentsByPatientId(Long patientId);
 
     @Transactional
-    void addAppointment(AppointmentDto appointmentDto, Long doctorId, Long patientId);
+    AppointmentDto addAppointment(AppointmentDto appointmentDto, Long doctorId, Long patientId);
 
     @Transactional
     void updateAppointmentById(AppointmentDto appointmentDto);

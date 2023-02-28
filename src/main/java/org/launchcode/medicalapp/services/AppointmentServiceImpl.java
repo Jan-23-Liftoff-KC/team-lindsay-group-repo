@@ -11,11 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 public class AppointmentServiceImpl implements AppointmentService{
@@ -27,12 +28,15 @@ public class AppointmentServiceImpl implements AppointmentService{
     @Autowired
     private PatientRepository patientRepository;
 
+    SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy h:mm a");
+    Date d = new Date();
+
     @Override
     public List<AppointmentDto> getActiveAppointmentsByDoctorId(Long doctorId) {
         Optional<Doctor> doctorOptional = doctorRepository.findById(doctorId);
         if (doctorOptional.isPresent()){
             List<Appointment> appointmentList = appointmentRepository.findAllByDoctorEquals(doctorOptional.get());
-            return appointmentList.stream().filter(x -> x.getStatus() == 1).map(appointment -> new AppointmentDto(appointment)).collect(Collectors.toList());
+            return appointmentList.stream().filter(x -> x.getStatus() == 1 && (x.getAppointmentDate().compareTo(d) == 0)).map(appointment -> new AppointmentDto(appointment)).collect(Collectors.toList());
         }
         return Collections.emptyList();
     }
@@ -43,14 +47,14 @@ public class AppointmentServiceImpl implements AppointmentService{
         if (patientOptional.isPresent()){
 
             List<Appointment> appointmentList = appointmentRepository.findAllByPatientEquals(patientOptional.get());
-            return appointmentList.stream().filter(x -> x.getStatus() == 1).map(appointment -> new AppointmentDto(appointment)).collect(Collectors.toList());
+            return appointmentList.stream().filter(x -> x.getStatus() == 1 && (x.getAppointmentDate().compareTo(d) > 0)).map(appointment -> new AppointmentDto(appointment)).collect(Collectors.toList());
 
         }
         return Collections.emptyList();
     }
 
     @Override
-    public void addAppointment(AppointmentDto appointmentDto, Long doctorId, Long patientId) {
+    public AppointmentDto addAppointment(AppointmentDto appointmentDto, Long doctorId, Long patientId) {
         Optional<Doctor> doctorOptional = doctorRepository.findById(doctorId);
         Optional<Patient> patientOptional = patientRepository.findById(patientId);
         Appointment appointment = new Appointment(appointmentDto);
@@ -58,6 +62,8 @@ public class AppointmentServiceImpl implements AppointmentService{
         doctorOptional.ifPresent(appointment::setDoctor);
         patientOptional.ifPresent(appointment::setPatient);
         appointmentRepository.saveAndFlush(appointment);
+        AppointmentDto appointmentDto1 = new AppointmentDto(appointment);
+        return appointmentDto1;
     }
 
     @Override
