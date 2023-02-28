@@ -9,6 +9,7 @@ import lombok.ToString;
 import org.launchcode.medicalapp.dtos.PatientDto;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
@@ -44,8 +45,8 @@ public class Patient {
     @Column(columnDefinition = "text")
     private String doctorNotes;
 
-    @Column
-    //@Email(message = "please enter a valid email")
+    @Column(unique = true)
+    @Email(message = "please enter a valid email")
     private String email;
 
     @Column

@@ -46,11 +46,16 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     @Transactional
-    public void registerNewPatient(PatientDto patientDto, Long doctorId) {
+    public String registerNewPatient(PatientDto patientDto, Long doctorId) {
+        Optional<Patient> patientOpt = patientRepository.findByEmail(patientDto.getEmail());
+        if (!patientOpt.isEmpty()){
+            return "Email already exist, Please enter a new email.";
+        }
         Optional<Doctor> doctorOptional = doctorRepository.findById(doctorId);
         Patient patient = new Patient(patientDto);
         doctorOptional.ifPresent(patient::setDoctor);
         patientRepository.saveAndFlush(patient);
+        return "SUCCESS";
     }
 
     @Override
@@ -78,6 +83,18 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
+    @Transactional
+    public void updatePatientDiagDetails(PatientDto patientDto) {
+        Optional<Patient> patientOptional = patientRepository.findById(patientDto.getId());
+        patientOptional.ifPresent(patient -> {
+            patient.setDiagnosis(patientDto.getDiagnosis());
+            patient.setPrescriptions(patientDto.getPrescriptions());
+            patient.setDoctorNotes(patientDto.getDoctorNotes());
+            patientRepository.saveAndFlush(patient);
+        });
+    }
+
+    @Override
     public List<String> patientLogin(PatientDto patientDto){
         List<String> response = new ArrayList<>();
         Optional<Patient> patientOptional = patientRepository.findByEmail(patientDto.getEmail());
@@ -89,6 +106,7 @@ public class PatientServiceImpl implements PatientService {
                 response.add(String.valueOf(patientOptional.get().getFirstName()));
                 response.add(String.valueOf(patientOptional.get().getLastName()));
             } else {
+                response.add("http://localhost:8080/patientLogin.html");
                 response.add("username or password incorrect");
             }
         } else {

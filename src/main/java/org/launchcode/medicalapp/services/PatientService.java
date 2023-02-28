@@ -13,7 +13,7 @@ public interface PatientService {
     void addPatient(PatientDto patientDto, Long doctorId);
 
     @Transactional
-    void registerNewPatient(PatientDto patientDto, Long doctorId);
+    String registerNewPatient(PatientDto patientDto, Long doctorId);
 
     @Transactional
     void deletePatientById(Long patientId);
@@ -21,7 +21,10 @@ public interface PatientService {
     @Transactional
     void updatePatientById(PatientDto patientDto);
 
-    public List<String> patientLogin(PatientDto patientDto);
+    @Transactional
+    void updatePatientDiagDetails(PatientDto patientDto);
+
+    List<String> patientLogin(PatientDto patientDto);
 
     Optional<PatientDto> getPatientById(Long patientId);
 }
