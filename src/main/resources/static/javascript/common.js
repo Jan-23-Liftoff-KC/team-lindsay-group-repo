@@ -5,20 +5,23 @@ function checkAuthorized()
  let med_app_pat_lname = getCookie("med_app_pat_lname");
  let med_app_pat_expires = getCookie("med_app_pat_expires");
 
- if(med_app_pat_id != null && med_app_pat_id != "" && med_app_pat_expires != null && med_app_pat_expires != "") {
+ if(med_app_pat_id != null && med_app_pat_id != ""
+    && med_app_pat_expires != null
+    && med_app_pat_expires != "") {
     appExpiredDate = new Date(med_app_pat_expires);
-    let today = new Date();
-    if(today>appExpiredDate){
-        clearCookies();
-        window.location.replace("http://localhost:8080/error.html");
-    }
-    else {
-        let divWelcomeUser = document.getElementById('divWelcomeUser');
-        divWelcomeUser.innerHTML = "Welcome " + med_app_pat_fname + " " + med_app_pat_lname + "!";
-    }
-
+        let today = new Date();
+        if(today > appExpiredDate){
+            clearCookies();
+            window.location.replace("http://localhost:8080/error.html");
+        }
+        else {
+            let divWelcomeUser = document.getElementById('divWelcomeUser');
+            divWelcomeUser.innerHTML = "Welcome <b>" + med_app_pat_fname + " " + med_app_pat_lname + "</b>!";
+        }
  }
-
+ else {
+    window.location.replace("http://localhost:8080/error.html");
+ }
 }
 
 function clearCookies(){

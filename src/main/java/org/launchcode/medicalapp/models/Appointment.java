@@ -22,7 +22,6 @@ public class Appointment {
     private Long id;
 
     @DateTimeFormat(pattern = "MM/dd/yyyy h:mm a")
-    //@Future(message="Appointment Date should a future date!!")
     private Date appointmentDate;
 
     // 0-Cancelled by patient, 1-Active, 2-Completed
