@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.launchcode.medicalapp.dtos.DoctorDto;
+//import org.springframework.data.annotation.Id;
 
 
 import javax.persistence.*;

@@ -36,6 +36,7 @@ public class AppointmentDto implements Serializable {
         this.patientDto.setId(appointment.getPatient().getId());
         this.patientDto.setFirstName(appointment.getPatient().getFirstName());
         this.patientDto.setLastName(appointment.getPatient().getLastName());
+        this.patientDto.setAge(appointment.getPatient().getAge());
 
     }
 }

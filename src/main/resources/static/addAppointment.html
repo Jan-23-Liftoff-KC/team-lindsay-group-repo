@@ -18,24 +18,43 @@
     <script type="text/javascript" src="/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.js"></script>
     <script src="../javascript/common.js" type="application/javascript"></script>
     <title>Schedule Appointment</title>
+    <style>
+        .input-group-text {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 0.75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            text-align: center;
+            white-space: nowrap;
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            m: ;
+        }
+    </style>
+    <div id="prettyTop">
+        <img src="MEDPRO3.png" alt="Med Pro" width="100%" class="center">
+    </div>
 </head>
-    <body class="container" >
-    <div class="container" id="home-container">
-
-        <div id="prettyTop">
-            <img src="MEDPRO3.png" alt="Med Pro" width="100%" class="center">
-        </div>
+<body class="container" >
+<div style="text-align:right">
+    <label id="divWelcomeUser"></label>&nbsp;&nbsp;&nbsp;<a href="patientLogin.html" >Logout</a>
+</div>
+<div class="container" id="home-container">
     <div class="container">
-        <div class="col-md-4 mt-5">
+        <div>
             <h2>Schedule Appointment</h2>
             <br>
-            <form id="addAppointment" style="max-width:600px;">
+            <form id="addAppointment" style="max-width:50%;">
                 <div class="form-group">
                     <label for="addAppointment-providerName" id="addAppointment-providerName">Provider Name: </label>
                 </div>
                 <br>
                 <div class="form-group">
-                    <label for="addAppointment-appDateTime">Date:</label>
+                    <label for="addAppointment-appDateTime">Choose a Date and Time</label>
                     <br><br>
                     <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
                         <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"
@@ -48,15 +67,16 @@
                 <br>
                 <div class="mt-1">
                     <button id="submit-button" type="submit" class="btn btn-info" data-toggle="button" aria-pressed="false" autocomplete="off">Schedule Appointment</button>
+                    <a id="appDetails" class="btn btn-secondary" data-toggle="button"aria-pressed="false"autocomplete="off">Cancel</a>
                 </div>
             </form>
         </div>
     </div>
-    </div>
+</div>
 
-    <script src="../javascript/addAppointment.js" type="application/javascript"></script>
+<script src="../javascript/addAppointment.js" type="application/javascript"></script>
 
-    <script>
+<script>
     $.fn.datetimepicker.Constructor.Default = $.extend({}, $.fn.datetimepicker.Constructor.Default, {
         icons: {
             time: 'far fa-clock',
@@ -83,7 +103,7 @@
 <script src="../javascript/addAppointment.js" type="application/javascript"></script>
 
 <footer class="py-3 my-4">
-        <p class="text-center text-muted">© 2023</p>
-    </footer>
-    </body>
+    <p class="text-center text-muted">© 2023</p>
+</footer>
+</body>
 </html>

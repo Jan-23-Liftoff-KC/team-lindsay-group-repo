@@ -10,18 +10,20 @@
     <title>Appointments</title>
     <script src="../javascript/common.js" type="application/javascript"></script>
     <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <div id="prettyTop">
+        <img src="MEDPRO3.png" alt="Med Pro" width="100%" class="center">
+    </div>
 </head>
-<div id="prettyTop">
-    <img src="MEDPRO3.png" alt="Med Pro" width="100%" class="center">
-</div>
 <body class="container">
 <div style="text-align:right">
-    <a id="ancNewAppt" href="#">Add New Appointment</a> &nbsp; &nbsp; &nbsp; &nbsp;<a href="patientLogin.html" >Logout</a>
+
+    <label id="divWelcomeUser"></label>&nbsp;&nbsp;&nbsp;<a href="patientLogin.html" >Logout</a>
 </div>
 <div class="container-md">
     <h2>Your Active Appointments:</h2>
     <form id="appointment-list">
         <div class="form-group">
+            <p><a id="ancNewAppt" href="#">Add New Appointment</a></p>
             <p id="showData"></p>
         </div>
     </form>
