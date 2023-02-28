@@ -47,7 +47,6 @@ public class Patient {
 
     @Column(unique = true)
     @Email(message = "please enter a valid email")
-    @NotNull(message = "Please enter an email")
     private String email;
 
     @Column
