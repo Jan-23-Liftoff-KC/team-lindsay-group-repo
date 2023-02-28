@@ -2,9 +2,9 @@ let loginForm = document.getElementById('patient-login')
 let loginUserName = document.getElementById('login-userName')
 let loginPassword = document.getElementById('login-password')
 
-if(document.referrer != '' && (document.referrer.indexOf('index.html') < 0 || document.referrer.indexOf('error.html') < 0))
+if(document.referrer != '' && (document.referrer.indexOf('appointmentDetails.html') >= 0 || document.referrer.indexOf('addAppointment.html') >= 0))
 {
-    //clearCookies();
+    clearCookies();
     document.getElementById('messageDiv').innerHTML = "You have been successfully logged out!!";
 }
 
@@ -39,22 +39,28 @@ const handleSubmit = async (e) =>{
        const responseArr = await response.json();
 
        if(response.status === 200){
-        let patientId = responseArr[1];
-        let doctorId = responseArr[2];
-        let patFirstName = responseArr[3];
-        let patLastName = responseArr[4];
-        document.cookie = `med_app_pat_id=${patientId}`;
-        document.cookie = `med_app_pat_fname=${patFirstName}`;
-        document.cookie = `med_app_pat_lname=${patLastName}`;
-        setPatientLoginExpireCookie();
-        window.location.replace(responseArr[0]+"?docId="+doctorId+"&patId="+patientId);
+
+        if (responseArr[1]==="username or password incorrect"){
+              document.getElementById('errorMessage').innerHTML = "username or password incorrect, Please try again!!";
+        }
+        else{
+            let patientId = responseArr[1];
+            let doctorId = responseArr[2];
+            let patFirstName = responseArr[3];
+            let patLastName = responseArr[4];
+            document.cookie = `med_app_pat_id=${patientId}`;
+            document.cookie = `med_app_pat_fname=${patFirstName}`;
+            document.cookie = `med_app_pat_lname=${patLastName}`;
+            setPatientLoginExpireCookie();
+            window.location.replace(responseArr[0]+"?docId="+doctorId+"&patId="+patientId);
        }
     }
+}
 
 function setPatientLoginExpireCookie() {
   var now = new Date();
   var time = now.getTime();
-  var expireTime = time + 1000*60;
+  var expireTime = time + 1000*300;
   now.setTime(expireTime);
   document.cookie = 'med_app_pat_expires='+now.toString();
   console.log(document.cookie);  // 'Wed, 31 Oct 2012 08:50:17 UTC'
