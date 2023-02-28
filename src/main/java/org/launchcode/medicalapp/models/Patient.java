@@ -60,9 +60,6 @@ public class Patient {
     @JsonManagedReference
     private Set<Appointment> appointmentSet = new HashSet<>();
 
-    @ManyToOne
-    @JsonBackReference
-    private Doctor doctor;
 
     public Patient(PatientDto patientDto){
         if (patientDto.getFirstName() != null){
@@ -87,5 +84,5 @@ public class Patient {
 
 }
 
-}
+
 
