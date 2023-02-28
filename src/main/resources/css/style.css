@@ -25,25 +25,18 @@ padding-bottom: 30px;
 
 }
 .form-group {
-    padding: 1%;
-}
-
-body {
-   background-color: #f0f8ff;
-   padding: 0;
-   margin: 0;
-   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .instruction {
     text-align: left;
     padding-left: 15%;
 }
-
 h1{
 text-align: center;
 }
-
 .mt-1{
 text-align: center;
 padding-top: 20px;
@@ -53,12 +46,4 @@ h3{
 text-align: center;
 padding-top: 30px;
 padding-left: 50px;
-}
-
-.bolded {
-    font-weight: bold;
-}
-
-label {
-    font-weight: bold;
 }
