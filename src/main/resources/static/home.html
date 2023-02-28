@@ -25,9 +25,8 @@
 <div class="container" id="home-container">
 
     <div id="prettyTop">
-        <img src="./images/MEDPRO3.png" alt="Med Pro" width="100%" class="center">
+        <img src="../drawables/MEDPRO3.png" alt="Med Pro" width="100%" class="center">
     </div>
-
 
     <nav class="navbar navbar-expand-lg bg-light" >
         <div class="container-fluid">
@@ -79,8 +78,13 @@
             </div>
 
             <div class="mb-3 form-group">
-                <textarea class="form-control" id="patient-doctorNotes" placeholder="&#xF440;&ensp;Notes" rows="5"></textarea>
+                <textarea class="form-control" id="patient-doctorNotes" placeholder="&#xF440;&ensp;Patient Notes" rows="5"></textarea>
             </div>
+
+            <div class="mb-3 form-group">
+                <textarea class="form-control" id="patient-billingNotes" placeholder="&#xF440;&ensp;Billing Notes" rows="2"></textarea>
+            </div>
+
             <button id="submit-button" type="submit" class="btn btn-info mt-1" data-toggle="button" aria-pressed="false" autocomplete="off">Submit</button>
         </form>
     </div>
@@ -88,7 +92,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="patient-edit-modal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="patient-edit-modal-title" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog" >
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="patient-edit-modal-title">Edit your patient</h5>
@@ -102,6 +106,7 @@
                     <textarea class="form-control" style="min-width: 100%" rows="5" id="patient-diagnosis-edit"></textarea>
                     <textarea class="form-control" style="min-width: 100%" rows="5" id="patient-prescriptions-edit"></textarea>
                     <textarea class="form-control" style="min-width: 100%" rows="5" id="patient-doctorNotes-edit"></textarea>
+                    <textarea class="form-control" style="min-width: 100%" rows="5" id="patient-billingNotes-edit"></textarea>
                 </div>
             </div>
             <div class="modal-footer">
@@ -113,7 +118,7 @@
 </div>
 
 <footer class="py-3 my-4">
-    <p class="text-center text-muted">© 2023</p>
+    <p class="text-center text-muted">© Kavin Moreno, Kevin Peery, Meg Hynek, Nisha Rajendran, Ryan Kivett 2023</p>
 </footer>
 
 <script src="../javascript/home.js" type="application/javascript"></script>
