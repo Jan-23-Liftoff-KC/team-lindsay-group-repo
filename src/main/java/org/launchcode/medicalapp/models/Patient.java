@@ -45,6 +45,9 @@ public class Patient {
     @Column(columnDefinition = "text")
     private String doctorNotes;
 
+    @Column(columnDefinition = "text")
+    private String billingNotes;
+
     @Column(unique = true)
     @Email(message = "please enter a valid email")
     private String email;
@@ -84,6 +87,9 @@ public class Patient {
         }
         if (patientDto.getDoctorNotes() != null){
             this.doctorNotes = patientDto.getDoctorNotes();
+        }
+        if (patientDto.getBillingNotes() != null){
+            this.billingNotes = patientDto.getBillingNotes();
         }
         if (patientDto.getEmail() != null){
             this.email = patientDto.getEmail();

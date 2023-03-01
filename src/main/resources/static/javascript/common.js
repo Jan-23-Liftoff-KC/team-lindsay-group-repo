@@ -20,7 +20,7 @@ function checkAuthorized()
         }
  }
  else {
-    window.location.replace("http://localhost:8080/error.html");
+    window.location.replace("http://localhost:8080/notAuthorized.html");
  }
 }
 

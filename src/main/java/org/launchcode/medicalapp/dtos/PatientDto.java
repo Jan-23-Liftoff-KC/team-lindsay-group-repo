@@ -14,6 +14,7 @@ public class PatientDto implements Serializable {
     private Long id;
     private String diagnosis;
     private String doctorNotes;
+    private String billingNotes;
     private String prescriptions;
     private String firstName;
     private String lastName;
@@ -35,6 +36,9 @@ public class PatientDto implements Serializable {
         }
         if (patient.getDoctorNotes() != null){
             this.doctorNotes = patient.getDoctorNotes();
+        }
+        if (patient.getBillingNotes() != null){
+            this.billingNotes = patient.getBillingNotes();
         }
         if (patient.getPrescriptions() != null){
             this.prescriptions = patient.getPrescriptions();
