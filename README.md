@@ -26,7 +26,7 @@ It is the group capstone project for LaunchCode's Liftoff program. All CRUD oper
 
 1. Java
 2. Spring Boot
-3. Maven
+3. Gradle
 4. Spring Data JPA
 5. Hibernate
 6. Javascript
@@ -34,6 +34,7 @@ It is the group capstone project for LaunchCode's Liftoff program. All CRUD oper
 8. CSS
 9. Bootstrap 5
 10. PostgreSQL
+11. REST API
 
 ## CRUD Operations applying RESTful Principles
 1. POST: Creates a new resource (A patient form can be filled out and saved to the database on form submit)
@@ -54,7 +55,13 @@ The application provides the following user (doctor/provider) scenarios:
 
 5. Accessing Records: the medical provider will be able to access their patient's profiles/records.
 
-6. Appointment Requests: the patients will have the ability to schedule their appointments with their medical provider.
+6. New Patient Registration - We need atleast one doctor to be already present.
+
+7. Patient Log in - Patient will be able to log into their account.
+
+8. Creating new appointment, Viewing the list of appointments.
+
+9. Cancel the future appointments if needed.
 
 ## Application Flow
 MEDPRO is a Health Care app to maintain patient visit updates from the provider side and the appointments from patient side. 
@@ -81,6 +88,8 @@ Patient Flow:
 
 1. One doctor to many patients (@OneToMany on the Doctor @Entity model)
 2. Many patients to one doctor (@ManyToOne on the Patient @Entity model)  
+3. One patient can have many appointments (@OneToMany on the Patient @Entity model)
+3. One doctor can have many appointments (@OneToMany on the Doctor @Entity model)
   
 ## Database and Back-end
 1. Has at least 3 tables
@@ -111,6 +120,7 @@ Patient Flow:
 
 - Java 11
 - Spring Boot
+- PostgreSQL
 
 To have this app running on your local computer, please follow the below steps:
 
@@ -189,9 +199,10 @@ Connect with Ryan:
 </a>
 </p>
 
+Nisha Rajendran is a stay at home mom who holds a Bachelor Degree in Computer Science and Engineering and has about 10+ years of Software Industry work Experience in Financial Domain. She worked for Fiserv Inc., in India and took a break to provide care for her family and willing to restart her career now. She is continuing to upgrade her skills by learning new technologies and tools. She has completed LC101 web development course with Launchcode in December 2022 to learn technologies like Java, Springboot, Rest API, Javascript, Angular Basics, MYSQL, PostgreSQL, HTML, CSS and Bootstrap.
 
 Connect with Nisha: 
-<p><a href="">
+<p><a href="https://www.linkedin.com/in/nisha-rajendran-989603251">
   <img
     alt="LinkedIn"
     src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white"
